@@ -5,6 +5,19 @@ import { lazy } from "react";
 // Import des composants nécessaires depuis leurs emplacements respectifs
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
+import Homepage from "./pages/Homepage/Homepage.jsx";
+import Specialistes from "./pages/Specialistes/Specialistes.jsx";
+import AboutUs from "./pages/AboutUs/AboutUs.jsx"
+import Demarches from "./pages/Demarches/Demarches.jsx";
+import ServicesExchange from "./pages/ServicesExchange/ServicesExchange.jsx"
+import Messagerie from "./pages/Messagerie/Messagerie.jsx";
+import SignUp from "./pages/SignUp/SignUp.jsx";
+import SignIn from "./pages/SignIn/SignIn.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
+import ServiceForm from'./pages/ServicesExchange/ServiceForm.jsx'
+
+
+// import { rootLoader } from "./loaders/rootLoader.jsx";
 
 // Utilisation de lazy loading pour charger les composants de manière dynamique
 // Cela permet de ne pas charger tous les modules lors de la première connexion au site
@@ -56,6 +69,7 @@ export const router = createBrowserRouter([
         path: "/demarches", // Chemin vers la page des démarches
         element: <Demarches />, // Composant de la page des démarches
       },
+    
       {
         path: "/services", // Chemin vers la page d'échange de services
         element: <ServicesExchange />, // Composant de la page d'échange de services
@@ -63,6 +77,9 @@ export const router = createBrowserRouter([
       {
         path: "/messagerie", // Chemin vers la page de messagerie
         element: <Messagerie />, // Composant de la page de messagerie
+      },
+        path: "/servicesform",
+        element:<ServiceForm/>
       },
       {
         path: "/signup", // Chemin vers la page d'inscription

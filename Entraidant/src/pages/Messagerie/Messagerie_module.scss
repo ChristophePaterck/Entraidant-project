@@ -1,0 +1,63 @@
+/* Messagerie_container */
+.container {
+    margin-top: 20px;
+  }
+  
+  /* Messagerie_card */
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .messages {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .messages div {
+    margin-bottom: 10px;
+  }
+  
+  /* Messagerie_form */
+  .card-footer {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 576px) {
+    .card {
+      width: 100%;
+    }
+  }
+  
