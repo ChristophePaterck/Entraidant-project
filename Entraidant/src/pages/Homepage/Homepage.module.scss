@@ -13,6 +13,12 @@
   &:hover {
     box-shadow: none;
   }
+  @include mixin.xs {
+    width: 15rem;
+    height: 7rem;
+    margin:0.5rem auto;
+    box-shadow: none;
+  }
 }
 
 .containerCardXs {
@@ -22,26 +28,16 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    padding-left: 1rem;
+    margin: 3rem;
   }
 }
 
 .cardXs {
-  @include mixin.xs {
-    width: 15rem;
-    height: 7rem;
-    margin: 0 auto;
-    box-shadow: none;
-    p {
-      display: none;
-    }
-    img {
-      display: none;
-    }
-  }
+  
 }
 
 .mainContainerXs {
+  background: url('../../../public/img/accueil.png') cover;
   @include mixin.xs {
     margin-top: 5rem;
     p {
@@ -59,6 +55,10 @@
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  
+    @include mixin.xs {
+    display: none;
+  }
 }
 
 .homepageImg {
@@ -66,6 +66,7 @@
   border-radius: 20px;
   margin-left: 10rem;
   margin-top: 2rem;
+  
 }
 
 .homepageImgXs {
@@ -73,3 +74,4 @@
     display: none;
   }
 }
+

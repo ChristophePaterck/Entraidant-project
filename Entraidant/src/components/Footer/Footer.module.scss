@@ -18,7 +18,7 @@
 
 .footerXs {
   @include mixin.xs {
-    position: relative;
+    position: fixed;
     height: 5rem;
     flex-direction: column;
     p {
