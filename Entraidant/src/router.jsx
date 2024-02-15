@@ -5,15 +5,6 @@ import { lazy } from "react";
 // Import des composants nécessaires depuis leurs emplacements respectifs
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
-import Homepage from "./pages/Homepage/Homepage.jsx";
-import Specialistes from "./pages/Specialistes/Specialistes.jsx";
-import AboutUs from "./pages/AboutUs/AboutUs.jsx"
-import Demarches from "./pages/Demarches/Demarches.jsx";
-import ServicesExchange from "./pages/ServicesExchange/ServicesExchange.jsx"
-import Messagerie from "./pages/Messagerie/Messagerie.jsx";
-import SignUp from "./pages/SignUp/SignUp.jsx";
-import SignIn from "./pages/SignIn/SignIn.jsx";
-import Profile from "./pages/Profile/Profile.jsx";
 import ServiceForm from'./pages/ServicesExchange/ServiceForm.jsx'
 
 
@@ -78,6 +69,7 @@ export const router = createBrowserRouter([
         path: "/messagerie", // Chemin vers la page de messagerie
         element: <Messagerie />, // Composant de la page de messagerie
       },
+      {
         path: "/servicesform",
         element:<ServiceForm/>
       },
