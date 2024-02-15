@@ -1,14 +1,17 @@
 import styles from "./HeaderMenu.module.scss"
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function HeaderMenu() {
   return (
     <ul className={`${styles.MenuContainer} card p-20`}>
-      <li>connexion</li>
-      <Link to="/signup">
+      <NavLink to="signin">
+        <li>connexion</li>
+      </NavLink>
+
+      <NavLink to="/signup">
         {" "}
         <li>inscription</li>
-      </Link>
+      </NavLink>
     </ul>
   );
 }

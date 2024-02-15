@@ -1,42 +1,51 @@
-import styles from "./Homepage.module.scss";
-import accueil from "../../../public/img/accueil.png";
-import { NavLink } from "react-router-dom";
+import styles from "./Homepage.module.scss"; // Importation des styles spécifiques pour la page d'accueil
+import accueil from "../../../public/img/accueil.png"; // Importation de l'image d'accueil
+import { NavLink } from "react-router-dom"; // Importation de NavLink pour gérer les liens de navigation
 
 function Homepage() {
   return (
     <div
       className={` ${styles.mainContainerXs} d-flex flex-column p-20 justify-content-center`}
     >
+      {/* Conteneur principal */}
       <div
         className={` ${styles.containerCardXs} d-flex justify-content-center space-between mb-20`}
       >
-        <NavLink to="/demarches"
+        {/* Liens vers différentes sections */}
+        <NavLink
+          to="/demarches"
           className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex flex-column align-items-center justify-content-center`}
         >
           <h4>Démarches</h4>
         </NavLink>
-        <NavLink to="/specialistes"
+        <NavLink
+          to="/specialistes"
           className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
         >
           <h4>Spécialistes</h4>
         </NavLink>
-        <NavLink to="/services"
+        <NavLink
+          to="/services"
           className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
         >
           <h4>Services</h4>
         </NavLink>
-        <NavLink to="/messagerie"
+        <NavLink
+          to="/messagerie"
           className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
         >
           <h4>Messagerie</h4>
         </NavLink>
       </div>
+      {/* Contenu principal */}
       <div className="d-flex">
+        {/* Image d'accueil */}
         <img
           className={`${styles.homepageImg} ${styles.homepageImgXs}`}
           src={accueil}
           alt="image représentant deux mains jointes"
         />
+        {/* Texte d'accueil */}
         <div className={`align-items-center ${styles.homepageText}`}>
           Bienvenue sur Entraidant, un havre virtuel dédié à tisser des liens
           solides et à fournir une assistance inestimable à ceux qui traversent

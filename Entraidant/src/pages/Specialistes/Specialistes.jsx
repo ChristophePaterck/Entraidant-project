@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from "./Specialistes.module.scss";
 import SpecialistesCard from "../SpecialistesCard/SpecialistesCard";
-// import axios from 'axios';
-// import L from 'leaflet';
+import axios from 'axios';
+import L from 'leaflet';
 import '../../assets/styles/index.scss';
 import '../../assets/styles/_mixins.scss';
 

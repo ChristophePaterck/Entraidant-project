@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styles from "./Header.module.scss";
-// import HeaderMenu from "./components/HeaderMenu/HeaderMenu.jsx";
+import HeaderMenu from "./components/HeaderMenu/HeaderMenu.jsx";
 import logo from "../../../public/img/logoEntraidant.png";
-// import HeaderForm from "./components/HeaderForm/HeaderForm.jsx";
+
 import { NavLink } from "react-router-dom";
 
-// import logo from "../../../public/img/logo.png";
+
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -40,7 +40,9 @@ function Header() {
       ></i>
       {showMenu && (
         <>
-          <div onClick={() => setShowMenu(false)} className="calc"></div>
+          <div onClick={() => setShowMenu(false)} className="calc">
+            <HeaderMenu/>
+          </div>
         </>
       )}
     </header>
