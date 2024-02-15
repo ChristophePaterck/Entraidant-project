@@ -17,6 +17,7 @@ export async function signin(credentials) {
 
   // Si la réponse du serveur est "ok" (statut HTTP 200), retourne le corps de la réponse
   if (response.ok) {
+    console.log(body);
     return body;
   } else {
     // Si la réponse contient des données JSON, lance une exception avec ce corps
