@@ -6,8 +6,8 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import { Suspense } from "react";
 
 function App() {
-  // const user = useLoaderData();
-  // console.log(user);
+  const user = useLoaderData();
+  console.log(user);
 
   return (
     <div className={`d-flex flex-column ${styles.appContainer}`}>
