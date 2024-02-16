@@ -6,7 +6,7 @@ import { lazy } from "react";
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import ServiceForm from './pages/ServicesExchange/ServiceForm.jsx'
-import Administratives from "./pages/Demarches/pages/Administratives/Administratives.jsx";
+import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAdministratives.jsx";
 // import DemarchesFinancières from "./pages/Demarches/pages/DemarchesFinancieres/DemarchesFinancieres.jsx";
 
 

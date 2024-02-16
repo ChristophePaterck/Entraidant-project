@@ -1,0 +1,68 @@
+.temContainer {
+
+}
+
+.itemCard {
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    }}
+
+     button {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .searchBarContainer {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-left: 9rem;
+  margin-top: 3rem;
+}
+
+.searchTerm {
+  padding: 1rem;
+  width: 80%;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.searchButton {
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  width: 5rem;
+}
+
+.searchTerm:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.demarcheTitle {
+  text-align: center;
+  margin-top: 1rem;
+}

@@ -1,9 +1,8 @@
-import styles from "./DemarchesFinancieres.module.scss";
-
-function DemarchesFinancières() {
+import styles from "./DemarchesAdministratives.module.scss";
+function Administratives() {
   return (
     <>
-      <h2 className={styles.demarcheTitle}>Aides financières</h2>
+      <h2 className={styles.demarcheTitle}>Démarches Admistratives</h2>
       <div className={`${styles.searchBarContainer}`}>
         <form className="d-flex">
           <input
@@ -91,4 +90,4 @@ function DemarchesFinancières() {
   );
 }
 
-export default DemarchesFinancières;
+export default Administratives;
