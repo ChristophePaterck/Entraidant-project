@@ -1,5 +1,9 @@
 import styles from "./Homepage.module.scss"; // Importation des styles spécifiques pour la page d'accueil
 import accueil from "../../../public/img/accueil.png"; // Importation de l'image d'accueil
+import files from "../../../public/img/files.svg";
+import services from "../../../public/img/services.svg";
+import chat from "../../../public/img/chat.svg";
+import healthcare from "../../../public/img/healthcare.svg"
 import { NavLink } from "react-router-dom"; // Importation de NavLink pour gérer les liens de navigation
 
 function Homepage() {
@@ -16,25 +20,36 @@ function Homepage() {
           to="/demarches"
           className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex flex-column align-items-center justify-content-center`}
         >
-          
+          <img src={files} alt="logo de document" className="mb-20" />
           <h4>Démarches</h4>
         </NavLink>
         <NavLink
           to="/specialistes"
-          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
+          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex flex-column align-items-center justify-content-center`}
         >
+          <img
+            src={healthcare}
+            alt="logo deux mains tiennent un coeur"
+            className="mb-20"
+          />
           <h4>Spécialistes</h4>
         </NavLink>
         <NavLink
           to="/services"
-          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
+          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex flex-column align-items-center justify-content-center`}
         >
+          <img
+            src={services}
+            alt="logo deux mains tiennent un coeur"
+            className="mb-20"
+          />
           <h4>Services</h4>
         </NavLink>
         <NavLink
           to="/messagerie"
-          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
+          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex flex-column align-items-center justify-content-center`}
         >
+          <img src={chat} alt="logo messagerie" className="mb-20" />
           <h4>Messagerie</h4>
         </NavLink>
       </div>
@@ -44,7 +59,7 @@ function Homepage() {
         <img
           className={`${styles.homepageImg} ${styles.homepageImgXs}`}
           src={accueil}
-          alt="image représentant deux mains jointes"
+          alt="image représentant deux mains tatouées jointes"
         />
         {/* Texte d'accueil */}
         <div className={`align-items-center ${styles.homepageText}`}>
