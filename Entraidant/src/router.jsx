@@ -5,7 +5,9 @@ import { lazy } from "react";
 // Import des composants nécessaires depuis leurs emplacements respectifs
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
-import ServiceForm from'./pages/ServicesExchange/ServiceForm.jsx'
+import ServiceForm from './pages/ServicesExchange/ServiceForm.jsx'
+import Administratives from "./pages/Demarches/pages/Administratives/Administratives.jsx";
+// import DemarchesFinancières from "./pages/Demarches/pages/DemarchesFinancieres/DemarchesFinancieres.jsx";
 
 
 // import { rootLoader } from "./loaders/rootLoader.jsx";
@@ -35,6 +37,13 @@ const SignUp = lazy(() => import("./pages/SignUp/SignUp.jsx"));
 const SignIn = lazy(() => import("./pages/SignIn/SignIn.jsx"));
 // Composant de la page de profil utilisateur
 const Profile = lazy(() => import("./pages/Profile/Profile.jsx"));
+// const Administratives = lazy(() => import("./pages/Demarches/pages/Administratives/Administratives.jsx"));
+const DemarchesFinancieres = lazy(() =>
+  import(
+    "./pages/Demarches/pages/DemarchesFinancieres/DemarchesFinancieres.jsx"
+  )
+);
+
 
 //color
 //router permettant la navigation sur le site 
@@ -59,9 +68,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/demarches", // Chemin vers la page des démarches
-        element: <Demarches />, // Composant de la page des démarches
+        element: <Demarches /> // Composant de la page des démarches
       },
-    
+      {
+            path: "/administratives",
+            element: <Administratives/>,
+      },
+      {
+            path: "/aides",
+            element: <DemarchesFinancieres/>,
+      },
       {
         path: "/services", // Chemin vers la page d'échange de services
         element: <ServicesExchange />, // Composant de la page d'échange de services
