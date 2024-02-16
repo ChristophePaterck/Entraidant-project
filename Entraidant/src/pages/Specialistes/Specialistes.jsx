@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import styles from "./Specialistes.module.scss";
 import SpecialistesCard from "../SpecialistesCard/SpecialistesCard";
+<<<<<<< HEAD
 // import axios from 'axios';
+=======
+import axios from 'axios';
+>>>>>>> 1e80929d36400729aa77755e2e93948f565116cd
 import L from 'leaflet';
 import '../../assets/styles/index.scss';
 import '../../assets/styles/_mixins.scss';
@@ -238,9 +242,8 @@ function Specialiste() {
 
   return (
     <div className={styles.container}>
-      <div id="mapid" className={styles.mapContainer}></div>
       <div className={styles.searchBarContainer}>
-        <form className='d-flex' onSubmit={handleSearch}>
+        <form className="d-flex" onSubmit={handleSearch}>
           <input
             type="text"
             value={searchTerm}
@@ -249,27 +252,39 @@ function Specialiste() {
             className={styles.searchTerm}
           />
 
-          <button type="submit">Valider</button>
-
+          <button className={styles.searchButton} type="submit">
+            Valider
+          </button>
         </form>
       </div>
+      
       <div className={styles.buttonContainer}>
         <button onClick={() => handleButtonClick("Nom")}>Nom</button>
-        <button onClick={() => handleButtonClick("Specialiste")}>Spécialiste</button>
-        <button onClick={() => handleButtonClick("region/ville/departement")}>Région/Ville/Département</button>
+        <button onClick={() => handleButtonClick("Specialiste")}>
+          Spécialiste
+        </button>
+        <button onClick={() => handleButtonClick("region/ville/departement")}>
+          Région/Ville/Département
+        </button>
       </div>
 
       <div className={styles.buttonContainerListe}>
-        <button className={styles.buttonContainerListes} onClick={() => handleButtonClick()}>Afficher la liste</button>
+        <button
+          className={styles.buttonContainerListes}
+          onClick={() => handleButtonClick()}
+        >
+          Afficher la liste
+        </button>
       </div>
+      <div id="mapid" className={styles.mapContainer}></div>
       {searchResults.length > 0 && (
         <div className={styles.searchResults}>
           <h2>Résultats de la recherche:</h2>
-          <ul>
+          {/* <ul>
             {searchResults.map((result, index) => (
               <li key={index}>{result.nom}</li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       )}
 

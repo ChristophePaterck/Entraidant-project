@@ -6,9 +6,11 @@ function Profile() {
       <div className="flex-fill d-flex justify-content-center align-items-center">
         <div className={`${styles.profileContainer} card p-20`}>
           <ul>
-          <li>Nom : </li>
+
+          <li>Username : </li>
+          <li>Firstname</li>
+          <li>Lasttname</li>
           <li>Email : </li>
-          <li>Password: </li>
           </ul>
         </div>
       </div>
