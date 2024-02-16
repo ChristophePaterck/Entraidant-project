@@ -20,6 +20,9 @@
     box-shadow: none;
   }
 }
+.mainContainer {
+ height: 200px;
+}
 
 .containerCardXs {
   @include mixin.xs {

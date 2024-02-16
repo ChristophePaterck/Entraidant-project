@@ -1,21 +1,27 @@
-import { useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Demarches_module.scss'; // Assurez-vous que ce chemin est correct
 
 function Demarches() {
-  const navigateTo = useNavigate();
+  // const navigateTo = useNavigate();
 
-  const redirectToAnotherPage = () => {
-    navigateTo("/autre-page");
-  };
+  // const redirectToAnotherPage = () => {
+  //   navigateTo("/autre-page");
+  // };
 
-  return ( 
+  return (
     <div className="container">
-      <div className="button-container">
-        <button type="button" onClick={redirectToAnotherPage}>Demarches administratives</button>
-      </div>
-      <div className="button-container">
-        <button type="button" onClick={redirectToAnotherPage}>Aide financière</button>
-      </div>
+      <NavLink to="/administratives">
+        <div className="button-container">
+          <button type="button">Demarches administratives</button>
+        </div>
+      </NavLink>
+
+      <NavLink to="/aides">
+        <div className="button-container">
+          <button type="button">Aide financière</button>
+        </div>
+      </NavLink>
     </div>
   );
 }
