@@ -171,3 +171,8 @@
     }
   }
 }
+
+.specialistesContainer {
+  display: flex;
+  flex-direction: column; // Pour afficher les cartes en colonne
+}
