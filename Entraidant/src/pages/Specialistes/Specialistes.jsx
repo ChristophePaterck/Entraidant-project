@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from "./Specialistes.module.scss";
 import SpecialistesCard from "../SpecialistesCard/SpecialistesCard";
-<<<<<<< HEAD
 // import axios from 'axios';
-=======
-import axios from 'axios';
->>>>>>> 1e80929d36400729aa77755e2e93948f565116cd
 import L from 'leaflet';
 import '../../assets/styles/index.scss';
 import '../../assets/styles/_mixins.scss';

@@ -36,12 +36,8 @@ const SignIn = lazy(() => import("./pages/SignIn/SignIn.jsx"));
 // Composant de la page de profil utilisateur
 const Profile = lazy(() => import("./pages/Profile/Profile.jsx"));
 
-<<<<<<< HEAD
 //color
 //router permettant la navigation sur le site 
-=======
-// Configuration du router pour la navigation sur le site
->>>>>>> 1e80929d36400729aa77755e2e93948f565116cd
 export const router = createBrowserRouter([
   {
     path: "/", // Chemin racine
