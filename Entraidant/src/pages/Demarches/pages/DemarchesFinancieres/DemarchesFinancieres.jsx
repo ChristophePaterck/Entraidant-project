@@ -8,8 +8,7 @@ function DemarchesFinancières() {
         <form className="d-flex">
           <input
             type="text"
-            value=""
-            onChange=""
+
             placeholder="Rechercher..."
             className={styles.searchTerm}
           />
@@ -25,7 +24,7 @@ function DemarchesFinancières() {
           <p>Résumé </p>
           <div className=" ">
             <div className="Name">
-              <button onClick={() => handleClick("/nom-page")}>
+              <button >
                 + d'infos
               </button>
             </div>
@@ -36,7 +35,7 @@ function DemarchesFinancières() {
           <p>Résumé </p>
           <div className="d-flex ">
             <div className="Name">
-              <button onClick={() => handleClick("/nom-page")}>
+              <button >
                 + d'infos
               </button>
             </div>
@@ -47,7 +46,7 @@ function DemarchesFinancières() {
           <p>Résumé </p>
           <div className="d-flex ">
             <div className="Name">
-              <button onClick={() => handleClick("/nom-page")}>
+              <button >
                 + d'infos
               </button>
             </div>
@@ -58,7 +57,7 @@ function DemarchesFinancières() {
           <p>Résumé </p>
           <div className="d-flex ">
             <div className="Name">
-              <button onClick={() => handleClick("/nom-page")}>
+              <button >
                 + d'infos
               </button>
             </div>
@@ -69,7 +68,7 @@ function DemarchesFinancières() {
           <p>Résumé </p>
           <div className="d-flex ">
             <div className="Name">
-              <button onClick={() => handleClick("/nom-page")}>
+              <button >
                 + d'infos
               </button>
             </div>
@@ -80,7 +79,7 @@ function DemarchesFinancières() {
           <p>Résumé </p>
           <div className="d-flex ">
             <div className="Name">
-              <button onClick={() => handleClick("/nom-page")}>
+              <button >
                 + d'infos
               </button>
             </div>

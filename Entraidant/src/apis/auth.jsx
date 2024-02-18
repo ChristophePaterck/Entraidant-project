@@ -31,17 +31,16 @@ export async function signin(credentials) {
 }
 
 // export async function getCurrentUser() {
-//   const response = await fetch(`${API_AUTH}/`);
+//   const response = await fetch(`${API_AUTH}/profile`);
 //   return response.json();
-
 // }
 
 
 // Fonction pour se déconnecter de l'API d'authentification
-export async function signout() {
-  // Envoie une requête DELETE à l'URL de l'API d'authentification pour se déconnecter
-  await fetch(API_AUTH, {
-    method: "DELETE", // Méthode de la requête : DELETE
-  });
-}
+// export async function signout() {
+//   // Envoie une requête DELETE à l'URL de l'API d'authentification pour se déconnecter
+//   await fetch(API_AUTH, {
+//     method: "DELETE", // Méthode de la requête : DELETE
+//   });
+// }
 

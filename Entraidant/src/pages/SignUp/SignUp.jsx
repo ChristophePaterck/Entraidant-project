@@ -12,31 +12,31 @@ function SignUp() {
   const validationSchema = yup.object({
     username: yup
       .string()
-      .required("Le nom d'utilisateur est requis") 
-      .min(2, "Le nom d'utilisateur doit contenir au moins 2 caractères"), 
+      .required("Le nom d'utilisateur est requis")
+      .min(2, "Le nom d'utilisateur doit contenir au moins 2 caractères"),
     firstname: yup
       .string()
-      .required("Le prénom est requis") 
-      .min(2, "Le prénom doit contenir au moins 2 caractères"), 
+      .required("Le prénom est requis")
+      .min(2, "Le prénom doit contenir au moins 2 caractères"),
     lastname: yup
       .string()
-      .required("Le nom est requis") 
+      .required("Le nom est requis")
       .min(2, "Le nom doit contenir au moins 2 caractères"),
     email: yup
       .string()
-      .required("L'email est requis") 
-      .email("L'email doit être valide"), 
+      .required("L'email est requis")
+      .email("L'email doit être valide"),
     password: yup
       .string()
-      .required("Le mot de passe est requis") 
-      .min(6, "Le mot de passe doit contenir au moins 6 caractères"), 
+      .required("Le mot de passe est requis")
+      .min(6, "Le mot de passe doit contenir au moins 6 caractères"),
     confirmPassword: yup
       .string()
-      .required("Vous devez confirmer votre mot de passe") 
+      .required("Vous devez confirmer votre mot de passe")
       .oneOf(
         [yup.ref("password"), ""],
         "Les mots de passe ne correspondent pas"
-      ), 
+      ),
   });
 
   // Initialisation des valeurs par défaut du formulaire
@@ -46,6 +46,7 @@ function SignUp() {
     lastname: "",
     email: "",
     password: "",
+    confirmPassword: "",
   };
 
   // Utilisation de useForm avec le schéma de validation
@@ -62,13 +63,17 @@ function SignUp() {
 
   // Fonction de soumission du formulaire
   const submit = handleSubmit(async (user) => {
-    console.log(user); // Affichage des données de l'utilisateur dans la console
+    console.log(user);
+    // Affichage des données de l'utilisateur dans la console
     try {
       clearErrors(); // Efface les erreurs précédentes
       await createUser(user); // Appel de la fonction de création d'utilisateur avec les informations du formulaire
       navigate("/signin"); // Redirection vers la page de connexion après l'inscription réussie
-    } catch (message) {
-      setError("generic", { type: "generic", message }); // Affichage des erreurs génériques en cas de problème lors de l'inscription
+    } catch (error) {
+      setError("generic", {
+        type: "generic",
+        message: error.message,
+      }); // Affichage des erreurs génériques en cas de problème lors de l'inscription
     }
   });
   return (
@@ -169,10 +174,12 @@ function SignUp() {
           )}
         </div>
         {errors.generic && (
-          <p className="form-error"> {errors.generic.message}</p>
+          <div className="mb-10">
+            <p className="form-error">{errors.generic.message}</p>
+          </div>
         )}
         <div>
-          <button disabled={isSubmitting} className="btn btn-primary">
+          <button disabled={isSubmitting} className="btn btn-primary mt-30">
             Inscription
           </button>
         </div>

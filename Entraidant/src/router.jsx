@@ -3,10 +3,13 @@ import { createBrowserRouter } from "react-router-dom";
 // Import de la fonction lazy depuis la bibliothèque react
 import { lazy } from "react";
 // Import des composants nécessaires depuis leurs emplacements respectifs
+// import { rootLoader } from "./loaders/rootLoader.jsx";
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import ServiceForm from './pages/ServicesExchange/ServiceForm.jsx'
 import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAdministratives.jsx";
+
+
 // import DemarchesFinancières from "./pages/Demarches/pages/DemarchesFinancieres/DemarchesFinancieres.jsx";
 
 
@@ -51,6 +54,7 @@ export const router = createBrowserRouter([
   {
     path: "/", // Chemin racine
     element: <App />, // Élément racine de l'application
+    // loader: rootLoader,
     children: [
       // Enfants de l'élément racine
       {
@@ -71,12 +75,12 @@ export const router = createBrowserRouter([
         element: <Demarches /> // Composant de la page des démarches
       },
       {
-            path: "/administratives",
-            element: <Administratives/>,
+        path: "/administratives",
+        element: <Administratives/>,
       },
       {
-            path: "/aides",
-            element: <DemarchesFinancieres/>,
+        path: "/aides",
+        element: <DemarchesFinancieres/>,
       },
       {
         path: "/services", // Chemin vers la page d'échange de services
@@ -99,7 +103,7 @@ export const router = createBrowserRouter([
         element: <SignIn />, // Composant de la page de connexion
       },
       {
-        path: "/profile", // Chemin vers la page de profil utilisateur
+        path: "/profil", // Chemin vers la page de profil utilisateur
         element: <Profile />, // Composant de la page de profil utilisateur
       },
     ],

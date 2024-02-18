@@ -42,10 +42,10 @@ function Signin() {
   const submit = handleSubmit(async (credentials) => {
     try {
       clearErrors(); // Efface les erreurs précédentes
-      await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
-      navigate("/profile"); // Redirection vers la page de profil après la connexion réussie
-    } catch (message) {
-      setError("generic", { type: "generic", message }); // Affichage des erreurs génériques en cas de problème de connexion
+      const user = await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
+      navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
+    } catch (error) {
+      setError("generic", { type: "generic", message: error.message }); // Affichage des erreurs génériques en cas de problème de connexion
     }
   });
 
@@ -85,7 +85,7 @@ function Signin() {
           />
           {errors.password && (
             <div className="mb-10">
-              <p className="form-error">{errors.password.message}</p>{" "}
+              <p className="form-error">{errors.password.message}</p>
               {/* Affichage des erreurs mot de passe */}
             </div>
           )}
