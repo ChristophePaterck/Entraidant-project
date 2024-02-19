@@ -6,7 +6,7 @@ import { signin } from "../../apis/auth.jsx"; // Importation de la fonction sign
 import { useNavigate } from "react-router-dom"; // Importation de useNavigate pour la navigation programmée dans React
 
 function Signin() {
-  const navigate = useNavigate(); // Utilisation de useNavigate pour la navigation entre les pages
+  // const navigate = useNavigate(); // Utilisation de useNavigate pour la navigation entre les pages
 
   // Schéma de validation du formulaire avec yup
   const validationSchema = yup.object({
@@ -44,7 +44,7 @@ function Signin() {
     try {
       clearErrors(); // Efface les erreurs précédentes
       const user = await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
-      navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
+      // navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
     } catch (error) {
       setError("generic", { type: "generic", message: error.message }); // Affichage des erreurs génériques en cas de problème de connexion
     }

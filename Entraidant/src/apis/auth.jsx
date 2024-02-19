@@ -1,5 +1,5 @@
 // URL de l'API d'authentification
-const API_AUTH = "https://entraidant-back.onrender.com/login/";
+const API_AUTH = "https://entraidant-back.onrender.com/login";
 
 // Fonction pour se connecter à l'API d'authentification
 export async function signin(credentials) {
@@ -31,10 +31,11 @@ export async function signin(credentials) {
 }
 
 export async function getCurrentUser() {
-  const response = await fetch(`${API_AUTH}/profile`);
+  const response = await fetch(`${API_AUTH}/profile`)
+  
+  console.log(response);
   return response.json();
 }
-
 
 // Fonction pour se déconnecter de l'API d'authentification
 // export async function signout() {
@@ -43,4 +44,3 @@ export async function getCurrentUser() {
 //     method: "DELETE", // Méthode de la requête : DELETE
 //   });
 // }
-
