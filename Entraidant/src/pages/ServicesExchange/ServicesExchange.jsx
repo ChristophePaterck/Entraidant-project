@@ -38,10 +38,9 @@ function ServicesExchange() {
     setFilter(value);
   };
 
-
   const filteredServices = services.filter(service => {
     if (!filter) return true;
-    return service.category.toLowerCase().includes(filter.toLowerCase());
+    return service.category;
   });
 
   const handleEditService = (serviceId) => {
@@ -79,7 +78,7 @@ function ServicesExchange() {
             placeholder="Filtrer par catégorie..."
           />
           <ul>
-            {filteredServices.slice(0,10).map(service => (
+            {filteredServices.slice(0, 10).map(service => (
               <li key={service.id} className={`service-${service.id}`}>
                 <strong>{service.name} :</strong> {service.content}
                 <button onClick={() => handleEditService(service.id)}>Modifier</button>
