@@ -6,7 +6,7 @@ import { signin } from "../../apis/auth.jsx"; // Importation de la fonction sign
 import { useNavigate } from "react-router-dom"; // Importation de useNavigate pour la navigation programmée dans React
 
 function Signin() {
-  // const navigate = useNavigate(); // Utilisation de useNavigate pour la navigation entre les pages
+  const navigate = useNavigate(); // Utilisation de useNavigate pour la navigation entre les pages
 
   // Schéma de validation du formulaire avec yup
   const validationSchema = yup.object({
@@ -43,11 +43,22 @@ function Signin() {
     console.log(credentials);
     try {
       clearErrors(); // Efface les erreurs précédentes
-      const user = await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
+      const response = await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
+     // Vérifier si la réponse est réussie et si elle contient le token
+    if (response.status === 'success' && response.token) {
+       console.log("Token d'authentification reçu :", response.token);
+      // Stocker le token dans le localStorage
+      localStorage.setItem("token", response.token);
+
       // navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
+    } else {
+      // Gérer les erreurs de connexion
+      setError("generic", { type: "generic", message: "Impossible de récupérer le token d'authentification." });
+    }
+    navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
     } catch (error) {
       setError("generic", { type: "generic", message: error.message }); // Affichage des erreurs génériques en cas de problème de connexion
-    }
+    } 
   });
 
   return (
