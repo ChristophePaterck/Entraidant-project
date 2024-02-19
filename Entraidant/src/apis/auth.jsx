@@ -30,10 +30,10 @@ export async function signin(credentials) {
   }
 }
 
-// export async function getCurrentUser() {
-//   const response = await fetch(`${API_AUTH}/profile`);
-//   return response.json();
-// }
+export async function getCurrentUser() {
+  const response = await fetch(`${API_AUTH}/profile`);
+  return response.json();
+}
 
 
 // Fonction pour se déconnecter de l'API d'authentification

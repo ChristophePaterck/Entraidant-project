@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 // Import de la fonction lazy depuis la bibliothèque react
 import { lazy } from "react";
 // Import des composants nécessaires depuis leurs emplacements respectifs
-// import { rootLoader } from "./loaders/rootLoader.jsx";
+import { rootLoader } from "./loaders/rootLoader.jsx";
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import ServiceForm from './pages/ServicesExchange/ServiceForm.jsx'
@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
   {
     path: "/", // Chemin racine
     element: <App />, // Élément racine de l'application
-    // loader: rootLoader,
+    loader: rootLoader,
     children: [
       // Enfants de l'élément racine
       {
