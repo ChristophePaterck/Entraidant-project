@@ -3,17 +3,11 @@ import { createBrowserRouter } from "react-router-dom";
 // Import de la fonction lazy depuis la bibliothèque react
 import { lazy } from "react";
 // Import des composants nécessaires depuis leurs emplacements respectifs
-// import { rootLoader } from "./loaders/rootLoader.jsx";
+import { rootLoader } from "./loaders/rootLoader.jsx";
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
-import ServiceForm from './pages/ServicesExchange/ServiceForm.jsx'
+import ServiceForm from "./pages/ServicesExchange/ServiceForm.jsx";
 import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAdministratives.jsx";
-
-
-// import DemarchesFinancières from "./pages/Demarches/pages/DemarchesFinancieres/DemarchesFinancieres.jsx";
-
-
-// import { rootLoader } from "./loaders/rootLoader.jsx";
 
 // Utilisation de lazy loading pour charger les composants de manière dynamique
 // Cela permet de ne pas charger tous les modules lors de la première connexion au site
@@ -47,14 +41,13 @@ const DemarchesFinancieres = lazy(() =>
   )
 );
 
-
 //color
-//router permettant la navigation sur le site 
+//router permettant la navigation sur le site
 export const router = createBrowserRouter([
   {
     path: "/", // Chemin racine
     element: <App />, // Élément racine de l'application
-    // loader: rootLoader,
+    loader: rootLoader,
     children: [
       // Enfants de l'élément racine
       {
@@ -72,15 +65,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/demarches", // Chemin vers la page des démarches
-        element: <Demarches /> // Composant de la page des démarches
+        element: <Demarches />, // Composant de la page des démarches
       },
       {
         path: "/administratives",
-        element: <Administratives/>,
+        element: <Administratives />,
       },
       {
         path: "/aides",
-        element: <DemarchesFinancieres/>,
+        element: <DemarchesFinancieres />,
       },
       {
         path: "/services", // Chemin vers la page d'échange de services
@@ -92,7 +85,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/servicesform",
-        element:<ServiceForm/>
+        element: <ServiceForm />,
       },
       {
         path: "/signup", // Chemin vers la page d'inscription

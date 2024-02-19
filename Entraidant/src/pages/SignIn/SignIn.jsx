@@ -12,12 +12,12 @@ function Signin() {
   const validationSchema = yup.object({
     email: yup
       .string()
-      .required("L'email est requis") 
-      .email("L'email doit être valide"), 
+      .required("L'email est requis")
+      .email("L'email doit être valide"),
     password: yup
       .string()
-      .required("Le mot de passe est requis") 
-      .min(6, "Le mot de passe doit contenir au moins 6 caractères"), 
+      .required("Le mot de passe est requis")
+      .min(6, "Le mot de passe doit contenir au moins 6 caractères"),
   });
 
   // Initialisation des valeurs par défaut du formulaire
@@ -40,13 +40,25 @@ function Signin() {
 
   // Fonction de soumission du formulaire
   const submit = handleSubmit(async (credentials) => {
+    console.log(credentials);
     try {
       clearErrors(); // Efface les erreurs précédentes
-      const user = await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
-      navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
+      const response = await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
+     // Vérifier si la réponse est réussie et si elle contient le token
+    if (response.status === 'success' && response.token) {
+       console.log("Token d'authentification reçu :", response.token);
+      // Stocker le token dans le localStorage
+      localStorage.setItem("token", response.token);
+
+      // navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
+    } else {
+      // Gérer les erreurs de connexion
+      setError("generic", { type: "generic", message: "Impossible de récupérer le token d'authentification." });
+    }
+    navigate("/profil"); // Redirection vers la page de profil après la connexion réussie
     } catch (error) {
       setError("generic", { type: "generic", message: error.message }); // Affichage des erreurs génériques en cas de problème de connexion
-    }
+    } 
   });
 
   return (
@@ -69,7 +81,8 @@ function Signin() {
             id="email"
             {...register("email")} // Enregistrement du champ email avec la fonction register de react-hook-form
           />
-          {errors.email && <p className="form-error">{errors.email.message}</p>} {/* Affichage des erreurs email */}
+          {errors.email && <p className="form-error">{errors.email.message}</p>}{" "}
+          {/* Affichage des erreurs email */}
         </div>
         {/* Champ mot de passe */}
         <div className="mb-10 d-flex flex-column">
