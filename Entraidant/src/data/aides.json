@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "titre": "Allocation journalière de présence parentale (AJPP)",
+    "categorie": "emploi",
+    "description": "Allocation destinée à compenser la perte de revenu lorsque le parent doit interrompre son activité professionnelle pour s'occuper d'un enfant gravement malade, accidenté ou handicapé.",
+    "conditions": "Être le parent d'un enfant de moins de 20 ans gravement malade, accidenté ou handicapé, ne pas bénéficier d'un congé de présence parentale, cesser temporairement ou réduire son activité professionnelle.",
+    "montant": "Variable en fonction du nombre de jours d'interruption de l'activité professionnelle et des ressources du foyer.",
+    "organisme": "Caisse d'Allocations Familiales (CAF)"
+    
+  },
+  {
+    "id": 2,
+    "titre": "Allocation aux adultes handicapés (AAH)",
+    "categorie": "soutien financier",
+    "description": "Allocation destinée à garantir un revenu minimum aux personnes en situation de handicap.",
+    "conditions": "Être âgé d'au moins 20 ans, présenter un taux d'incapacité permanente d'au moins 50% ou être reconnu inapte au travail, avoir des ressources inférieures à un plafond défini.",
+    "montant": "Le montant varie en fonction de la situation et des ressources de la personne handicapée.",
+    "organisme": "Caisse d'Allocations Familiales (CAF)"
+  },
+  {
+    "id": 3,
+    "titre": "Prestation de compensation du handicap (PCH)",
+    "categorie": "soutien financier",
+    "description": "Aide destinée à financer les dépenses liées à la perte d'autonomie des personnes handicapées.",
+    "conditions": "Être âgé d'au moins 20 ans, présenter un taux d'incapacité permanente d'au moins 80%, résider de manière stable et régulière en France.",
+    "montant": "Le montant varie en fonction des besoins de la personne handicapée et de ses ressources.",
+    "organisme": "Conseil Départemental"
+  },
+  {
+    "id": 4,
+    "titre": "Aide au répit pour les aidants familiaux",
+    "categorie": "soutien financier",
+    "description": "Aide financière destinée à permettre aux aidants familiaux de prendre du répit en bénéficiant de services d'accompagnement ou d'accueil temporaire pour la personne aidée.",
+    "conditions": "Être l'aidant familial d'une personne en situation de handicap ou de perte d'autonomie, avoir besoin de répit pour préserver sa santé ou poursuivre une activité professionnelle.",
+    "montant": "Le montant varie en fonction des besoins et des ressources de la personne aidée.",
+    "organisme": "Conseil Départemental"
+  },
+  {
+    "id": 5,
+    "titre": "Aide ménagère à domicile",
+    "categorie": "service",
+    "description": "Aide financière destinée à financer les services d'une aide ménagère à domicile pour les personnes en perte d'autonomie et leurs aidants.",
+    "conditions": "Être en situation de perte d'autonomie ou être aidant familial d'une personne en situation de perte d'autonomie, ne pas pouvoir assurer les tâches ménagères de manière autonome.",
+    "montant": "Le montant varie en fonction des besoins et des ressources de la personne aidée.",
+    "organisme": "Conseil Départemental"
+  },
+  {
+    "id": 6,
+    "titre": "Aide au transport adapté",
+    "categorie": "tarnsport",
+    "description": "Aide financière destinée à financer les frais de transport pour les personnes en situation de handicap et leurs aidants.",
+    "conditions": "Être en situation de handicap ou être aidant familial d'une personne en situation de handicap, avoir des difficultés de déplacement ou ne pas pouvoir utiliser les transports en commun.",
+    "montant": "Le montant varie en fonction des besoins et des ressources de la personne aidée.",
+    "organisme": "Conseil Départemental"
+  },
+  {
+    "id": 7,
+    "titre": "Aide à l'aménagement du logement",
+    "categorie": "logement",
+    "description": "Aide financière destinée à financer les travaux d'aménagement du logement pour les personnes en situation de handicap et leurs aidants.",
+    "conditions": "Être en situation de handicap ou être aidant familial d'une personne en situation de handicap, nécessiter des travaux d'aménagement pour favoriser l'accessibilité et l'autonomie au domicile.",
+    "montant": "Le montant varie en fonction des besoins et des ressources de la personne aidée.",
+    "organisme": "Conseil Départemental"
+  },
+  {
+    "id": 8,
+    "titre": "Allocation de soutien familial (ASF)",
+    "categorie": "soutien financier",
+    "description": "Allocation destinée à garantir une aide financière aux familles monoparentales ou aux personnes élevant seules un enfant.",
+    "conditions": "Être parent d'un enfant mineur, ne pas vivre en couple, ne pas recevoir de pension alimentaire pour l'enfant.",
+    "montant": "Variable en fonction des ressources et de la situation familiale.",
+    "organisme": "Caisse d'Allocations Familiales (CAF)"
+  },
+  {
+    "id": 9,
+    "titre": "Prime d'activité",
+    "categorie": "soutien financier",
+    "description": "Aide financière destinée à compléter les revenus des travailleurs modestes.",
+    "conditions": "Être âgé d'au moins 18 ans, exercer une activité professionnelle ou être étudiant apprenti, avoir des ressources inférieures à un plafond défini.",
+    "montant": "Le montant varie en fonction des ressources et de la situation familiale.",
+    "organisme": "Caisse d'Allocations Familiales (CAF)"
+  },
+  {
+    "id": 10,
+    "titre": "Congé de solidarité familiale",
+    "categorie": "emploi",
+    "description": "Congé permettant à un salarié de s'absenter de son travail pour accompagner un proche en fin de vie.",
+    "conditions": "Être salarié, être en relation de proximité avec la personne en fin de vie (conjoint, ascendant, descendant, frère, sœur), justifier de l'état de santé de la personne à accompagner.",
+    "montant": "Le salarié peut bénéficier d'un congé non rémunéré, mais peut percevoir des indemnités journalières de la Sécurité Sociale sous certaines conditions.",
+    "organisme": "Employeur et Sécurité Sociale"
+  }
+]

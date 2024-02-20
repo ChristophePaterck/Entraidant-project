@@ -8,6 +8,9 @@ import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import ServiceForm from "./pages/ServicesExchange/ServiceForm.jsx";
 import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAdministratives.jsx";
+import DemarcheDetail from "./pages/Demarches/pages/Administratives/DemarcheDetail.jsx";
+import AideDetail from "./pages/Demarches/pages/DemarchesFinancieres/AideDetail.jsx";
+
 
 // Utilisation de lazy loading pour charger les composants de manière dynamique
 // Cela permet de ne pas charger tous les modules lors de la première connexion au site
@@ -72,8 +75,16 @@ export const router = createBrowserRouter([
         element: <Administratives />,
       },
       {
+        path: "/demarche/:id",
+        element: <DemarcheDetail />,
+      },
+      {
         path: "/aides",
         element: <DemarchesFinancieres />,
+      },
+      {
+        path: "/aide/:id",
+        element: <AideDetail />,
       },
       {
         path: "/services", // Chemin vers la page d'échange de services
