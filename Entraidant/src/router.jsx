@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
       // Enfants de l'élément racine
       {
         index: true, // Indique que cette route est la page d'accueil
-        errorElement: <ErrorPage />, // Composant à afficher en cas d'erreur
+        // errorElement: <ErrorPage />, // Composant à afficher en cas d'erreur
         element: <Homepage />, // Composant de la page d'accueil
       },
       {
@@ -109,6 +109,10 @@ export const router = createBrowserRouter([
       {
         path: "/profil", // Chemin vers la page de profil utilisateur
         element: <Profile />, // Composant de la page de profil utilisateur
+      },
+      {
+        path: "*", // Chemin vers la page de profil utilisateur
+        element: <ErrorPage />, // Composant de la page de profil utilisateur
       },
     ],
   },

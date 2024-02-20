@@ -66,6 +66,7 @@ function Specialiste() {
   const [showList, setShowList] = useState(false);
 
 
+
   const handleSearch = async (event) => {
     event.preventDefault();
 
@@ -114,7 +115,6 @@ function Specialiste() {
       console.error('Error fetching search results:', error);
     }
   };
-
   // Créez une référence mutable pour stocker l'instance de la carte Leaflet
   const mapRef = useRef(null);
 
@@ -139,7 +139,11 @@ function Specialiste() {
 
           // Ajoutez un gestionnaire d'événements pour le clic sur la carte
           mapRef.current.on('click', function (event) {
+            console.log('Click event on map detected');
             const { lat, lng } = event.latlng;
+            console.log('Clicked Latitude:', lat);
+            console.log('Clicked Longitude:', lng);
+            handleLocationClick(lat, lng);
             addMarkerToMap(mapRef.current, lat, lng, customIcon); // Passer customIcon comme argument
           });
 
@@ -159,6 +163,21 @@ function Specialiste() {
     fetchData(); // Appeler la fonction fetchData ici pour récupérer les données
   }, []);
 
+  // tentative d'ajout de rediction vers leaflet
+  // le mapref permet de gére la position sur la map
+  // le setview method qui manipule le widget de map de leaflet
+  const handleLocationClick = (latitude, longitude) => {
+    console.log(latitude, longitude)
+    
+    if (mapRef.current) {
+      const map = mapRef.current;
+      map.setView([latitude, longitude], 13);
+      console.log('Map view updated successfully');
+    }
+  };
+  
+
+
 
   const filterResults = () => {
     return searchResults.filter(result =>
@@ -166,16 +185,6 @@ function Specialiste() {
     );
   };
 
-  // tentative d'ajout de rediction vers leaflet
-  // le mapref permet de gére la position sur la map
-  // le setview method qui manipule le widget de map de leaflet
-  const handleLocationClick = (latitude, longitude) => {
-    if (mapRef.current) {
-      const map = mapRef.current.leafletElement;
-      map.setView([latitude, longitude], 13);
-      console.log(map)
-    }
-  };
 
 
 
