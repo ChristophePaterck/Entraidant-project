@@ -142,6 +142,7 @@ function Specialiste() {
             const { lat, lng } = event.latlng;
             addMarkerToMap(mapRef.current, lat, lng, customIcon); // Passer customIcon comme argument
           });
+
         }
         const addMarkerToMap = (map, lat, lng, customIcon) => {
           L.marker([lat, lng], { icon: customIcon }).addTo(map);
@@ -158,10 +159,22 @@ function Specialiste() {
     fetchData(); // Appeler la fonction fetchData ici pour récupérer les données
   }, []);
 
+
   const filterResults = () => {
     return searchResults.filter(result =>
       result.firstname.toLowerCase().includes(searchTerm.toLowerCase())
     );
+  };
+
+  // tentative d'ajout de rediction vers leaflet
+  // le mapref permet de gére la position sur la map
+  // le setview method qui manipule le widget de map de leaflet
+  const handleLocationClick = (latitude, longitude) => {
+    if (mapRef.current) {
+      const map = mapRef.current.leafletElement;
+      map.setView([latitude, longitude], 13);
+      console.log(map)
+    }
   };
 
 
@@ -195,7 +208,7 @@ function Specialiste() {
       </div>
 
       <div className={styles.buttonContainerListe}>
-       
+
       </div>
       <div id="mapid" className={styles.mapContainer}></div>
 
@@ -203,15 +216,16 @@ function Specialiste() {
         <div className={styles.searchResults}> {/* Ajoutez className à la balise div */}
           <h2>Résultats de la recherche:</h2>
           <ul>
-          {filterResults().map((result, index) => (
+            {filterResults().map((result, index) => (
               <li key={index}>{result.firstname} {result.lastname}</li>
             ))}
           </ul>
         </div>
       )}
 
-    <SpecialistesCard items={filterResults()} />
-    </div> 
+      <SpecialistesCard items={filterResults()} mapRef={mapRef} handleLocationClick={handleLocationClick} />
+
+    </div>
   )
-  }
+}
 export default Specialiste;
