@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import axios from 'axios';
+import './ServicesExchange_module.scss'; // Import du fichier SCSS
+
 
 // Fonction pour récupérer les services depuis l'API
 export async function fetchServices() {
@@ -21,10 +23,10 @@ function ServicesExchange() {
   // State pour gérer le filtre et la liste des services
   const [filter, setFilter] = useState('');
   const [services, setServices] = useState([]);
-// Hook pour la navigation
-// Les hooks sont des fonctions spéciales fournies par React pour ajouter des fonctionnalités à un composant fonctionnel.
-// useState est un hook qui permet de déclarer des variables d'état dans un composant fonctionnel. Il renvoie un tableau contenant la valeur de l'état et une fonction pour mettre à jour cette valeur.
-// useEffect est un hook qui permet d'effectuer des effets de bord dans un composant fonctionnel. Il est utilisé pour exécuter du code côté effet de bord, comme des appels à des API, des abonnements à des événements, etc., en réponse à des changements dans le composant.
+  // Hook pour la navigation
+  // Les hooks sont des fonctions spéciales fournies par React pour ajouter des fonctionnalités à un composant fonctionnel.
+  // useState est un hook qui permet de déclarer des variables d'état dans un composant fonctionnel. Il renvoie un tableau contenant la valeur de l'état et une fonction pour mettre à jour cette valeur.
+  // useEffect est un hook qui permet d'effectuer des effets de bord dans un composant fonctionnel. Il est utilisé pour exécuter du code côté effet de bord, comme des appels à des API, des abonnements à des événements, etc., en réponse à des changements dans le composant.
   const navigate = useNavigate();
 
   // Effet pour charger les services initiaux lors du montage du composant
@@ -71,7 +73,7 @@ function ServicesExchange() {
     if (!filter) return true; // Si aucun filtre, retourner tous les services
     // Vérifier si la catégorie du service est définie et non nulle, puis vérifier si elle inclut le filtre (insensible à la casse)
     return service.name.toLowerCase().includes(filter.toLowerCase());
-});
+  });
 
 
   return (
@@ -101,7 +103,7 @@ function ServicesExchange() {
                 {/* Affichage des détails du service */}
                 <strong>{service.name} :</strong> {service.content}
                 {/* Bouton pour modifier le service */}
-                <button onClick={() => handleEditService(service.id)}>Modifier</button>
+                <div onClick={() => handleEditService(service.id)}></div>
               </li>
             ))}
           </ul>
