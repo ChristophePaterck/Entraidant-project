@@ -71,10 +71,6 @@ export const router = createBrowserRouter([
         element: <Messagerie />, // Composant de la page de messagerie
       },
       {
-        path: "/servicesform",
-        element:<ServiceForm/>
-      },
-      {
         path: "/signup", // Chemin vers la page d'inscription
         element: <SignUp />, // Composant de la page d'inscription
       },
@@ -88,11 +84,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/category", // Chemin vers la page de profil utilisateur
-        element: <category/>, // Composant de la page de profil utilisateur
+        element: < category />, // Composant de la page de profil utilisateur
       },
       {
-        path: "/servicesform/:serviceId", // Chemin vers la page de profil utilisateur
-        element: <servicesform/>, // Composant de la page de profil utilisateur
+        path: "/services/:id", // Chemin vers la page de profil utilisateur
+        element: < ServiceForm />, // Composant de la page de profil utilisateur
       },
     ],
   },

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import './ServicesExchange_module.scss'; // Import du fichier SCSS
 
@@ -57,7 +57,7 @@ function ServicesExchange() {
       navigate("/category");
     } else if (buttonName === "Add") {
       // Naviguer vers la page d'ajout/modification de service
-      navigate("/servicesform");
+      navigate("/services/:id");
     }
   };
 
@@ -75,9 +75,7 @@ function ServicesExchange() {
       <header>
         {/* Boutons de navigation */}
         <button onClick={() => handleButtonClick("Nom")}>categorie et lieux</button>
-        <NavLink to="/servicesform">
-          <button onClick={() => handleButtonClick("Add")}>ajouter et modifier un service</button>
-        </NavLink>
+        <button onClick={() => handleButtonClick("Add")}>ajouter et modifier un service</button>
       </header>
       <main>
         <div>
