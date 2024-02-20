@@ -49,24 +49,18 @@ function ServicesExchange() {
     setFilter(value);
   };
 
-  // Fonction pour naviguer vers la page de modification d'un service
-  const handleEditService = (serviceId) => {
-    navigate(`/services/${serviceId}`);
-  };
 
-  // Actions associées aux boutons
-  const buttonActions = {
-    "Nom": "/CatégorieetLieu",
-    "Add": "/servicesform",
-  };
 
-  // Fonction pour gérer les clics sur les boutons
   const handleButtonClick = (buttonName) => {
-    const action = buttonActions[buttonName];
-    if (action) {
-      navigate(action);
+    if (buttonName === "Nom") {
+      // Naviguer vers la page de modification de service
+      navigate("/category");
+    } else if (buttonName === "Add") {
+      // Naviguer vers la page d'ajout/modification de service
+      navigate("/servicesform");
     }
   };
+
 
   // Filtrage des services en fonction du filtre
   const filteredServices = services.filter(service => {

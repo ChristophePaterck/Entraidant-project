@@ -86,6 +86,14 @@ export const router = createBrowserRouter([
         path: "/profile", // Chemin vers la page de profil utilisateur
         element: <Profile />, // Composant de la page de profil utilisateur
       },
+      {
+        path: "/category", // Chemin vers la page de profil utilisateur
+        element: <category/>, // Composant de la page de profil utilisateur
+      },
+      {
+        path: "/servicesform/:serviceId", // Chemin vers la page de profil utilisateur
+        element: <servicesform/>, // Composant de la page de profil utilisateur
+      },
     ],
   },
 ]);
