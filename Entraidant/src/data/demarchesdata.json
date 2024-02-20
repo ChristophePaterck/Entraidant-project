@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "titre": "Demande de carte de stationnement pour personne handicapée",
+    "categorie": "Handicap",
+    "resume": "Procédure pour obtenir une carte de stationnement pour personne handicapée.",
+    "details": "La carte de stationnement pour personne handicapée permet de bénéficier de facilités de stationnement. Pour l'obtenir, vous devez remplir un formulaire de demande disponible auprès de votre mairie ou de la préfecture. Vous devrez fournir un certificat médical attestant de votre handicap ainsi qu'une pièce d'identité. La carte sera ensuite envoyée à votre domicile par courrier."
+  },
+  {
+    "id": 2,
+    "titre": "Demande d'allocation journalière de présence parentale (AJPP)",
+    "categorie": "Famille",
+    "resume": "Procédure pour obtenir l'allocation journalière de présence parentale.",
+    "details": "L'allocation journalière de présence parentale (AJPP) est destinée aux parents qui doivent interrompre leur activité professionnelle pour s'occuper de leur enfant gravement malade, accidenté ou handicapé. Vous devez remplir un formulaire de demande disponible auprès de la Caisse d'Allocations Familiales (CAF) ou de la Mutualité Sociale Agricole (MSA) et fournir certains documents justificatifs. L'AJPP peut être accordée pour une durée maximale de 310 jours par enfant et par bénéficiaire."
+  },
+  {
+    "id": 3,
+    "titre": "Demande d'allocation personnalisée d'autonomie (APA)",
+    "categorie": "Autonomie",
+    "resume": "Procédure pour obtenir l'allocation personnalisée d'autonomie.",
+    "details": "L'allocation personnalisée d'autonomie (APA) est destinée aux personnes âgées en perte d'autonomie. Vous devez effectuer une demande auprès du Conseil Départemental de votre département. Un évaluateur médico-social viendra évaluer votre degré de perte d'autonomie et déterminer le montant de l'APA auquel vous avez droit. L'APA peut être utilisée pour financer des services à domicile ou un hébergement en établissement."
+  },
+  {
+    "id": 4,
+    "titre": "Demande de carte d'invalidité",
+    "categorie": "Handicap",
+    "resume": "Procédure pour obtenir une carte d'invalidité.",
+    "details": "La carte d'invalidité permet de bénéficier de certains droits et avantages en tant que personne en situation de handicap. Pour l'obtenir, vous devez remplir un formulaire de demande disponible auprès de votre maison départementale des personnes handicapées (MDPH) et fournir un certificat médical détaillé. La carte d'invalidité est délivrée sous réserve de la reconnaissance du handicap par la commission des droits et de l'autonomie des personnes handicapées (CDAPH)."
+  },
+  {
+    "id": 5,
+    "titre": "Demande de complément de libre choix du mode de garde (CMG)",
+    "categorie": "Famille",
+    "resume": "Procédure pour obtenir le complément de libre choix du mode de garde.",
+    "details": "Le complément de libre choix du mode de garde (CMG) est une prestation versée par la Caisse d'Allocations Familiales (CAF) pour aider les parents à financer les frais de garde de leurs enfants de moins de 6 ans. Vous devez remplir un formulaire de demande et fournir certaines pièces justificatives, comme un contrat de travail de l'assistante maternelle ou une attestation sur l'honneur pour la garde par un proche. Le montant du CMG dépend des ressources et de la situation familiale."
+  },
+  {
+    "id": 6,
+    "titre": "Demande d'aide sociale à l'hébergement (ASH)",
+    "categorie": "Autonomie",
+    "resume": "Procédure pour obtenir l'aide sociale à l'hébergement.",
+    "details": "L'aide sociale à l'hébergement (ASH) est une aide financière destinée à aider les personnes âgées ou handicapées à faibles ressources à financer leur hébergement en établissement. Vous devez déposer une demande auprès du Centre Communal d'Action Sociale (CCAS) de votre commune ou auprès du Conseil Départemental. Un travailleur social évaluera votre situation financière et déterminera le montant de l'ASH auquel vous avez droit."
+  },
+  {
+    "id": 7,
+    "titre": "Demande d'allocation de solidarité aux personnes âgées (ASPA)",
+    "categorie": "Autonomie",
+    "resume": "Procédure pour obtenir l'allocation de solidarité aux personnes âgées.",
+    "details": "L'allocation de solidarité aux personnes âgées (ASPA), également appelée minimum vieillesse, est destinée aux personnes âgées de plus de 65 ans ayant de faibles ressources. Vous devez remplir un formulaire de demande auprès de la Caisse de Retraite ou de la Caisse d'Allocations Familiales (CAF) et fournir certains documents justificatifs. Le montant de l'ASPA varie en fonction des ressources."
+  }
+]

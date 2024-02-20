@@ -5,8 +5,6 @@ import logo from "../../../public/img/logoEntraidant.png";
 
 import { NavLink } from "react-router-dom";
 
-
-
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
   return (
@@ -41,7 +39,7 @@ function Header() {
       {showMenu && (
         <>
           <div onClick={() => setShowMenu(false)} className="calc">
-            <HeaderMenu/>
+            <HeaderMenu />
           </div>
         </>
       )}
