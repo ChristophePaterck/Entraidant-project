@@ -5,7 +5,7 @@ import logo from "../../../public/img/psyko.png";
 function ErrorPage() {
   // Utilisation du hook useRouteError pour obtenir les détails de l'erreur
   const error = useRouteError();
-  console.error(error);
+  console.log(error);
   return (
     <>
       {/* Titre de la page d'erreur */}
