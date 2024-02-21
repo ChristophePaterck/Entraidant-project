@@ -1,4 +1,5 @@
 // Import de la fonction createBrowserRouter depuis la bibliothèque react-router-dom
+
 import { createBrowserRouter } from "react-router-dom";
 // Import de la fonction lazy depuis la bibliothèque react
 import { lazy } from "react";
@@ -11,6 +12,7 @@ import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAd
 import DemarcheDetail from "./pages/Demarches/pages/Administratives/DemarcheDetail.jsx";
 import AideDetail from "./pages/Demarches/pages/DemarchesFinancieres/AideDetail.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
+
 
 
 // Utilisation de lazy loading pour charger les composants de manière dynamique

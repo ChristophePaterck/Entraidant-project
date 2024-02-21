@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import './ServicesExchange_module.scss'; // Import du fichier SCSS
+
 
 // Fonction pour récupérer les services depuis l'API
 export async function fetchServices() {
@@ -21,10 +23,10 @@ function ServicesExchange() {
   // State pour gérer le filtre et la liste des services
   const [filter, setFilter] = useState('');
   const [services, setServices] = useState([]);
-// Hook pour la navigation
-// Les hooks sont des fonctions spéciales fournies par React pour ajouter des fonctionnalités à un composant fonctionnel.
-// useState est un hook qui permet de déclarer des variables d'état dans un composant fonctionnel. Il renvoie un tableau contenant la valeur de l'état et une fonction pour mettre à jour cette valeur.
-// useEffect est un hook qui permet d'effectuer des effets de bord dans un composant fonctionnel. Il est utilisé pour exécuter du code côté effet de bord, comme des appels à des API, des abonnements à des événements, etc., en réponse à des changements dans le composant.
+  // Hook pour la navigation
+  // Les hooks sont des fonctions spéciales fournies par React pour ajouter des fonctionnalités à un composant fonctionnel.
+  // useState est un hook qui permet de déclarer des variables d'état dans un composant fonctionnel. Il renvoie un tableau contenant la valeur de l'état et une fonction pour mettre à jour cette valeur.
+  // useEffect est un hook qui permet d'effectuer des effets de bord dans un composant fonctionnel. Il est utilisé pour exécuter du code côté effet de bord, comme des appels à des API, des abonnements à des événements, etc., en réponse à des changements dans le composant.
   const navigate = useNavigate();
 
   // Effet pour charger les services initiaux lors du montage du composant
@@ -47,31 +49,25 @@ function ServicesExchange() {
     setFilter(value);
   };
 
-  // Fonction pour naviguer vers la page de modification d'un service
-  const handleEditService = (serviceId) => {
-    navigate(`/services/${serviceId}`);
-  };
 
-  // Actions associées aux boutons
-  const buttonActions = {
-    "Nom": "/CatégorieetLieu",
-    "Add": "/servicesform",
-  };
 
-  // Fonction pour gérer les clics sur les boutons
   const handleButtonClick = (buttonName) => {
-    const action = buttonActions[buttonName];
-    if (action) {
-      navigate(action);
+    if (buttonName === "Nom") {
+      // Naviguer vers la page de modification de service
+      navigate("/category");
+    } else if (buttonName === "Add") {
+      // Naviguer vers la page d'ajout/modification de service
+      navigate("/services/:id");
     }
   };
+
 
   // Filtrage des services en fonction du filtre
   const filteredServices = services.filter(service => {
     if (!filter) return true; // Si aucun filtre, retourner tous les services
     // Vérifier si la catégorie du service est définie et non nulle, puis vérifier si elle inclut le filtre (insensible à la casse)
     return service.name.toLowerCase().includes(filter.toLowerCase());
-});
+  });
 
 
   return (
@@ -79,9 +75,7 @@ function ServicesExchange() {
       <header>
         {/* Boutons de navigation */}
         <button onClick={() => handleButtonClick("Nom")}>categorie et lieux</button>
-        <NavLink to="/servicesform">
-          <button onClick={() => handleButtonClick("Add")}>ajouter et modifier un service</button>
-        </NavLink>
+        <button onClick={() => handleButtonClick("Add")}>ajouter et modifier un service</button>
       </header>
       <main>
         <div>
@@ -101,7 +95,7 @@ function ServicesExchange() {
                 {/* Affichage des détails du service */}
                 <strong>{service.name} :</strong> {service.content}
                 {/* Bouton pour modifier le service */}
-                <button onClick={() => handleEditService(service.id)}>Modifier</button>
+                <div onClick={() => handleEditService(service.id)}></div>
               </li>
             ))}
           </ul>

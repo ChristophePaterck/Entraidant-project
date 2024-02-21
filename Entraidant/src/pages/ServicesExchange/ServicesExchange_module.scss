@@ -1,2 +1,74 @@
+/* Style du composant service-Exchange */
+.service-Exchange {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
 
-  
+
+    header {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    ul {
+        list-style-type: circle;
+        padding: 0;
+        margin: 0;
+
+        .service-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            h3 {
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            button {
+                padding: 5px 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+        }
+    }
+}
