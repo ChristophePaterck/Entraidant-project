@@ -9,11 +9,11 @@ import { NavLink } from "react-router-dom"; // Importation de NavLink pour gére
 function Homepage() {
   return (
     <div
-      className={` ${styles.mainContainerXs} d-flex flex-column p-20 justify-content-center`}
+      className={`${styles.mainContainerXs} ${styles.mainContainer}d-flex flex-column p-20 justify-content-center`}
     >
       {/* Conteneur principal */}
       <div
-        className={` ${styles.containerCardXs} d-flex justify-content-center space-between mb-20`}
+        className={`${styles.containerCardXs} d-flex justify-content-center space-between mb-20`}
       >
         {/* Liens vers différentes sections */}
         <NavLink

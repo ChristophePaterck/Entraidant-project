@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 
 // eslint-disable-next-line no-unused-vars
 import styles from "../../pages/SpecialistesCard/SpecialistesCard.module.scss"
 
-function SpecialistesCard({ items }) {
+function SpecialistesCard({ items, mapRef, handleLocationClick }) {
   const handleClick = () => {
-
-  };
+    // Gérer le clic
+  };  
 
   return (
-    <div className={styles.specialistesContainer}> {/* Utilisez la classe CSS du conteneur */}
+    <div className={styles.specialistesContainer}>
       {items.map((item, index) => (
-        <div key={index} className={styles.specialistesCard}> {/* Utilisez la classe CSS de la carte */}
+        <div key={index} className={styles.specialistesCard}>
           <h3>{item.nom}</h3>
           <p>{item.firstname} {item.lastname}</p>
           <p>Spécialité: {item.profession}</p>
@@ -29,7 +30,7 @@ function SpecialistesCard({ items }) {
             </div>
 
             <div className="location">
-              <button onClick={() => handleClick("/localisation-page")}>
+              <button onClick={() => handleLocationClick(item.latitude, item.longitude)}>
                 Voir sur la carte
               </button>
             </div>

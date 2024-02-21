@@ -1,15 +1,16 @@
 import { useRouteError } from "react-router-dom";
+import logo from "../../../public/img/psyko.png";
+
 
 function ErrorPage() {
   // Utilisation du hook useRouteError pour obtenir les détails de l'erreur
   const error = useRouteError();
-
+  console.log(error);
   return (
     <>
       {/* Titre de la page d'erreur */}
-      <h2>ErrorPage</h2>
+      <img src={logo} alt="psyko" />
       {/* Affichage du message d'erreur */}
-      <p>{error.statusText}</p>
     </>
   );
 }
