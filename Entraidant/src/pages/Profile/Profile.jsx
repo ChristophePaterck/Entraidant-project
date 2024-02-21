@@ -1,99 +1,36 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./Profile.module.scss";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 function Profile() {
-  const [username, setUsername] = useState("JohnDoe");
-  const [firstname, setFirstname] = useState("John");
-  const [lastname, setLastname] = useState("Doe");
-  const [email, setEmail] = useState("johndoe@example.com");
-  const [isEditing, setIsEditing] = useState(false);
+  const { user } = useContext(AuthContext);
+  console.log(user)
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleSave = async () => {
-    try {
-      const response = await fetch("/api/profile", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          firstname,
-          lastname,
-          email,
-        }),
-      });
-      if (response.ok) {
-        setIsEditing(false);
-        // Gérer les cas de succès, comme afficher un message de confirmation
-      } else {
-        // Gérer les cas d'erreur
-        console.error("Failed to update profile");
-      }
-    } catch (error) {
-      console.error("Error updating profile:", error);
+  // Utiliser useEffect pour détecter les changements dans les données utilisateur
+  useEffect(() => {
+    // Vérifier si l'utilisateur est défini
+    if (user) {
+      setIsLoading(false); // Mettre à jour l'état isLoading à false une fois que les données utilisateur sont disponibles
     }
-  };
+  }, [user]);
 
+  // Afficher un indicateur de chargement tant que les données utilisateur sont en cours de chargement
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  // Afficher les données de l'utilisateur
   return (
     <div className="flex-fill d-flex justify-content-center align-items-center">
-      <div className={`${styles.profileContainer} card p-20`}>
+      <div className={`${styles.profilecontainer} card p-20`}>
+        <h3 className="mb-20">Page de profile</h3>
         <ul>
-          <li>
-            <strong>Username :</strong>{" "}
-            {isEditing ? (
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            ) : (
-              username
-            )}
-          </li>
-          <li>
-            <strong>Firstname:</strong>{" "}
-            {isEditing ? (
-              <input
-                type="text"
-                value={firstname}
-                onChange={(e) => setFirstname(e.target.value)}
-              />
-            ) : (
-              firstname
-            )}
-          </li>
-          <li>
-            <strong>Lastname:</strong>{" "}
-            {isEditing ? (
-              <input
-                type="text"
-                value={lastname}
-                onChange={(e) => setLastname(e.target.value)}
-              />
-            ) : (
-              lastname
-            )}
-          </li>
-          <li>
-            <strong>Email :</strong>{" "}
-            {isEditing ? (
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            ) : (
-              email
-            )}
-          </li>
+          <li>Username : {user.username}</li>
+          <li>Prénom : {user.firstname}</li>
+          <li>Nom : {user.lastname}</li>
+          <li>Email : {user.email}</li>
         </ul>
-        <div>
-          {isEditing ? (
-            <button onClick={handleSave}>Save</button>
-          ) : (
-            <button onClick={() => setIsEditing(true)}>Edit</button>
-          )}
-        </div>
       </div>
     </div>
   );

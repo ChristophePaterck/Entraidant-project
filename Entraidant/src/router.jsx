@@ -10,6 +10,7 @@ import ServiceForm from "./pages/ServicesExchange/ServiceForm.jsx";
 import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAdministratives.jsx";
 import DemarcheDetail from "./pages/Demarches/pages/Administratives/DemarcheDetail.jsx";
 import AideDetail from "./pages/Demarches/pages/DemarchesFinancieres/AideDetail.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 
 
 // Utilisation de lazy loading pour charger les composants de manière dynamique
@@ -88,7 +89,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services", // Chemin vers la page d'échange de services
-        element: <ServicesExchange />, // Composant de la page d'échange de services
+        element: (
+          <ProtectedRoute>
+            <ServicesExchange />
+          </ProtectedRoute>
+        ), // Composant de la page d'échange de services
       },
       {
         path: "/messagerie", // Chemin vers la page de messagerie
@@ -108,7 +113,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profil", // Chemin vers la page de profil utilisateur
-        element: <Profile />, // Composant de la page de profil utilisateur
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ), // Composant de la page de profil utilisateur
       },
       {
         path: "*", // Chemin vers la page de profil utilisateur

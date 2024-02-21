@@ -31,42 +31,39 @@ export async function signin(credentials) {
 }
 
 export async function getCurrentUser() {
-   const token = localStorage.getItem('token');
-   console.log(token);
+  const token = localStorage.getItem("token");
+  //  console.log(token);
 
-     if (!token) {
-       console.log(
-         "Aucun token d'authentification trouvé. Aucun utilisateur connecté."
-       );
-       return null;
-     }
+  if (!token) {
+    console.log(
+      "Aucun token d'authentification trouvé. Aucun utilisateur connecté."
+    );
+    return null;
+  }
   try {
-   const response = await fetch(`${API_AUTH}/profile`, {
+    const response = await fetch(`${API_AUTH}/profile`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
-   if (response.ok) {
-     // Extraire les données JSON de la réponse
-     const userData = await response.json();
-     // Retourner les informations spécifiques de l'utilisateur (par exemple, son nom et son email)
-     return {
-       username: userData.username,
-       email: userData.email,
-       firstname: userData.firstname,
-       lastname: userData.lastname
-       // Ajoutez d'autres propriétés en fonction de ce que vous récupérez du profil utilisateur
-     };
-   } else {
-     // Si la requête a échoué, l'API peut fournir des informations sur l'erreur
-     console.error(
-       "Erreur lors de la récupération du profil utilisateur:",
-       response.statusText
-     );
-     return null; // Ou une autre valeur appropriée pour indiquer une erreur
-   }
+    if (response.ok) {
+      // Extraire les données JSON de la réponse
+      const data = await response.json();
+      const userData = data.data.user;
+      console.log(userData);
+      // Retourner les informations spécifiques de l'utilisateur (par exemple, son nom et son email)
+      return userData;
+      // Ajoutez d'autres propriétés en fonction de ce que vous récupérez du profil utilisateur
+    } else {
+      // Si la requête a échoué, l'API peut fournir des informations sur l'erreur
+      console.error(
+        "Erreur lors de la récupération du profil utilisateur:",
+        response.statusText
+      );
+      return null; // Ou une autre valeur appropriée pour indiquer une erreur
+    }
   } catch (error) {
     console.error(
       "Erreur lors de la récupération du profil utilisateur:",
@@ -76,10 +73,10 @@ export async function getCurrentUser() {
   }
 }
 
-// Fonction pour se déconnecter de l'API d'authentification
-// export async function signout() {
-//   // Envoie une requête DELETE à l'URL de l'API d'authentification pour se déconnecter
-//   await fetch(API_AUTH, {
-//     method: "DELETE", // Méthode de la requête : DELETE
-//   });
-// }
+export async function signout() {
+  // Envoie une requête DELETE à l'URL de l'API d'authentification pour se déconnecter
+  await fetch(API_AUTH, {
+    method: "DELETE", // Méthode de la requête : DELETE
+  });
+   document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
