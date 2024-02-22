@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 
 function Signin() {
-  const {signin, user} = useContext(AuthContext);
+  const { signin, user } = useContext(AuthContext);
 
   // Schéma de validation du formulaire avec yup
   const validationSchema = yup.object({
@@ -46,17 +46,23 @@ function Signin() {
     try {
       clearErrors(); // Efface les erreurs précédentes
       const response = await signin(credentials); // Appel de la fonction de connexion avec les informations du formulaire
-     // Vérifier si la réponse est réussie et si elle contient le token
-     
-   // Redirection vers la page de profil après la connexion réussie
+      console.log(response);
+      // Vérifier si la réponse est réussie et si elle contient le token
+      if (response && response.token) {
+        // Stocker le token dans le local storage
+        localStorage.setItem("token", response.token);
+         console.log("Token stored successfully:", response.token);
+        // Redirection vers la page de profil après la connexion réussie
+      }
+      // Redirection vers la page de profil après la connexion réussie
     } catch (error) {
       setError("generic", { type: "generic", message: error.message }); // Affichage des erreurs génériques en cas de problème de connexion
-    } 
+    }
   });
 
   return (
     <>
-      { user ? (
+      {user ? (
         <Navigate to="/" />
       ) : (
         <div className="flex-fill d-flex align-items-center justify-content-center">

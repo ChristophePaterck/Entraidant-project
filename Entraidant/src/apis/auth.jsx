@@ -32,7 +32,7 @@ export async function signin(credentials) {
 
 export async function getCurrentUser() {
   const token = localStorage.getItem("token");
-  //  console.log(token);
+   console.log("Token récupéré a la connection", token);
 
   if (!token) {
     console.log(
@@ -45,14 +45,14 @@ export async function getCurrentUser() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     });
     if (response.ok) {
       // Extraire les données JSON de la réponse
       const data = await response.json();
       const userData = data.data.user;
-      console.log(userData);
+      console.log("Données de l'utilisateur récupérées avec succès", userData);
       // Retourner les informations spécifiques de l'utilisateur (par exemple, son nom et son email)
       return userData;
       // Ajoutez d'autres propriétés en fonction de ce que vous récupérez du profil utilisateur
@@ -74,35 +74,32 @@ export async function getCurrentUser() {
 }
 
 export async function signout() {
-  // Envoie une requête DELETE à l'URL de l'API d'authentification pour se déconnecter
-  await fetch(API_AUTH, {
-    method: "DELETE", // Méthode de la requête : DELETE
-  });
-   document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+ localStorage.removeItem("token")
 }
 
 
 
 export async function updateUserApi(userId, updatedData) {
   const token = localStorage.getItem("token");
+  console.log("Token présent dans le localStorage", token)
 
   // Vérifie si un token d'authentification est présent
   if (!token) {
     console.error("Aucun token d'authentification trouvé.");
     return null;
   }
-
+console.log("données updatedData", updatedData)
   try {
     // Envoie une requête PUT à l'API pour mettre à jour les informations de l'utilisateur
-    const response = await fetch(`${API_AUTH}/profile`, {
-      method: "PUT", // Méthode de la requête : PUT
+    const response = await fetch(`${API_AUTH}/update`, {
+      method: "PATCH", // Méthode de la requête : PUT
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify(updatedData), // Corps de la requête : données mises à jour au format JSON
     });
-
+    
     // Vérifie si la requête a réussi
     if (response.ok) {
       // Attend la réponse de l'API et la traite comme une réponse JSON
