@@ -15,7 +15,13 @@ function SpecialistesCard({ items, mapRef, handleLocationClick }) {
           <h3>{item.nom}</h3>
           <p>{item.firstname} {item.lastname}</p>
           <p>Spécialité: {item.profession}</p>
-          <p>Localisation: {item.address}</p>
+          <p>Localisation : {item.street_number} {item.street_type} {item.street_name} {item.office_postal_address} {item.contact} </p>
+
+
+
+          
+
+
           <div className="d-flex button-container">
             <div className="Name">
               <button onClick={() => handleClick("/nom-page")}>

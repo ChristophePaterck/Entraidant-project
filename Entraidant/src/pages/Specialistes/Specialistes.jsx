@@ -39,7 +39,7 @@ export async function SearchAPI() {
   try {
     const response = await axios.get(
       // a modifier par l'URL du back ex: localhost:5432/specialistes
-      'https://entraidant-back.onrender.com/specialist',
+      'https://entraidant-back.onrender.com/specialist?limit=10',
       {
         headers: {
           'Content-Type': 'application/json',
@@ -64,6 +64,7 @@ function Specialiste() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showList, setShowList] = useState(false);
+  const [filteredResults, setFilteredResults] = useState([]);
 
 
 
@@ -168,16 +169,16 @@ function Specialiste() {
   // le setview method qui manipule le widget de map de leaflet
   const handleLocationClick = (latitude, longitude) => {
     console.log(latitude, longitude)
-    
+
     if (mapRef.current) {
       const map = mapRef.current;
       map.setView([latitude, longitude], 13);
       console.log('Map view updated successfully');
     }
   };
-  
 
 
+  // section filtre spécifique 
 
   const filterResults = () => {
     return searchResults.filter(result =>
@@ -185,8 +186,14 @@ function Specialiste() {
     );
   };
 
-
-
+  //filtre par profession 
+  const handleFilter = (e) => {
+    const professionToFilter = e.target.value.toLowerCase();
+    const filtered = searchResults.filter(result =>
+      result.profession.toLowerCase().includes(professionToFilter)
+    );
+    setFilteredResults(filtered);
+  };
 
   return (
     <div className={styles.container}>
@@ -208,9 +215,9 @@ function Specialiste() {
 
       <div className={styles.buttonContainer}>
         <button onClick={() => handleButtonClick("Nom")}>Nom</button>
-        <button onClick={() => handleButtonClick("Specialiste")}>
-          Spécialiste
-        </button>
+        <button onClick={handleFilter}>Filtrer</button>
+
+
         <button onClick={() => handleButtonClick("region/ville/departement")}>
           Région/Ville/Département
         </button>
@@ -221,20 +228,25 @@ function Specialiste() {
       </div>
       <div id="mapid" className={styles.mapContainer}></div>
 
-      {showList && ( // Vérifiez la condition showList
-        <div className={styles.searchResults}> {/* Ajoutez className à la balise div */}
+      {showList && (
+        <div className={styles.searchResults}>
           <h2>Résultats de la recherche:</h2>
           <ul>
             {filterResults().map((result, index) => (
               <li key={index}>{result.firstname} {result.lastname}</li>
             ))}
+            {/* Ajoutez le rendu des emplois filtrés ici */}
+            {filteredResults.map((result, index) => (
+            <div key={index}>{result.profession}</div>
+            ))}
           </ul>
         </div>
       )}
 
-      <SpecialistesCard items={filterResults()} mapRef={mapRef} handleLocationClick={handleLocationClick} />
 
-    </div>
-  )
+      <SpecialistesCard items={filterResults()} mapRef={mapRef} handleLocationClick={handleLocationClick} profession={filteredResults} />
+
+</div>
+)
 }
 export default Specialiste;
