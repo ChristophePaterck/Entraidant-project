@@ -39,7 +39,7 @@ export async function SearchAPI() {
   try {
     const response = await axios.get(
       // a modifier par l'URL du back ex: localhost:5432/specialistes
-      'https://entraidant-back.onrender.com/specialist?limit=10',
+      'https://entraidant-back.onrender.com/specialist',
       {
         headers: {
           'Content-Type': 'application/json',
@@ -237,7 +237,7 @@ function Specialiste() {
             ))}
             {/* Ajoutez le rendu des emplois filtrés ici */}
             {filteredResults.map((result, index) => (
-            <div key={index}>{result.profession}</div>
+              <div key={index}>{result.profession}</div>
             ))}
           </ul>
         </div>
@@ -246,7 +246,7 @@ function Specialiste() {
 
       <SpecialistesCard items={filterResults()} mapRef={mapRef} handleLocationClick={handleLocationClick} profession={filteredResults} />
 
-</div>
-)
+    </div>
+  )
 }
 export default Specialiste;
