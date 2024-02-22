@@ -49,7 +49,7 @@ function ServiceForm() {
           <textarea name="description" value={service.description} onChange={handleChange} />
         </label>
         {/* Autres champs du formulaire */}
-        <button type="submit">Enregistrer les modifications</button>
+        <button type="submit">Enregistrer les modificationsd</button>
       </form>
     </div>
   );
