@@ -25,7 +25,7 @@ const customIconOptions = {
 
 
 function addMarkersToMap(map, items) {
-  items.forEach(item => {
+  items.map(item => {
     if (item.latitude && item.longitude) {
       L.marker([item.latitude, item.longitude]).addTo(map);
     }
@@ -89,13 +89,13 @@ function Specialiste() {
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
-
+  
   const buttonActions = {
     "Nom": "/page-nom",
     "Specialiste": "/page-specialiste",
     "region/ville/departement": "/page-region-ville-departement"
   };
-
+  
   const handleButtonClick = async (buttonName) => {
     try {
       let results;
@@ -118,7 +118,11 @@ function Specialiste() {
   };
   // Créez une référence mutable pour stocker l'instance de la carte Leaflet
   const mapRef = useRef(null);
-
+  
+ 
+  
+ 
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -137,7 +141,7 @@ function Specialiste() {
             maxZoom: 19,
             attribution: '© OpenStreetMap'
           }).addTo(mapRef.current);
-
+          
           // Ajoutez un gestionnaire d'événements pour le clic sur la carte
           mapRef.current.on('click', function (event) {
             console.log('Click event on map detected');
@@ -148,12 +152,12 @@ function Specialiste() {
             addMarkerToMap(mapRef.current, lat, lng, customIcon); // Passer customIcon comme argument
           });
 
+           const addMarkerToMap = (map, lat, lng, customIcon) => {
+    L.marker([lat, lng], { icon: customIcon }).addTo(map);
+    map.getContainer().style.cursor = 'auto';
+  };
         }
-        const addMarkerToMap = (map, lat, lng, customIcon) => {
-          L.marker([lat, lng], { icon: customIcon }).addTo(map);
-        };
-
-
+        
         // Ajoutez des marqueurs initiaux à la carte en utilisant les données initiales
         addMarkersToMap(mapRef.current, results);
       } catch (error) {
