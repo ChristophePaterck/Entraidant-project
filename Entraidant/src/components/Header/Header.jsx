@@ -17,9 +17,7 @@ function Header() {
         <img src={logo} alt="Entraidant logo" />
       </NavLink>
 
-      <div className=" ">
-        <h1>Entraidant</h1>
-      </div>
+     
       {user ? (
        
           <div>

@@ -1,27 +1,35 @@
 @use "../../assets/styles/mixins" as mixin;
 
+
+.navBar {
+
+}
 .homepageLink {
-  height: 8rem;
+  margin: 0 2rem;
+  height: 4rem;
   width: 20%;
-  background: rgba(41, 128, 185, 1);
+  background: RGB(47, 37, 106);
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1.2rem;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  // box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+  //   rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   // border: 2px solid white;
   &:hover {
-    box-shadow: none;
+    
   }
+
   @include mixin.xs {
     width: 15rem;
     height: 7rem;
-    margin:0.5rem auto;
+    margin: 0.5rem auto;
     box-shadow: none;
   }
 }
 .mainContainer {
- height: 200px;
+  background: url("../../../public/img/Homepage.jpg") center no-repeat;
+  background-size: 100%;
+  width: 100%;
 }
 
 .containerCardXs {
@@ -36,11 +44,10 @@
 }
 
 .cardXs {
-  
 }
 
 .mainContainerXs {
-  background: url('../../../public/img/accueil.png') cover;
+  background: url("../../../public/img/accueil.png") cover;
   @include mixin.xs {
     margin-top: 5rem;
     p {
@@ -51,15 +58,19 @@
 
 .homepageText {
   font-size: 1rem;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
   width: 50%;
   margin: 5rem auto;
   padding: 2rem;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  
-    @include mixin.xs {
+  h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  @include mixin.xs {
     display: none;
   }
 }
@@ -69,7 +80,6 @@
   border-radius: 20px;
   margin-left: 10rem;
   margin-top: 2rem;
-  
 }
 
 .homepageImgXs {
@@ -77,4 +87,3 @@
     display: none;
   }
 }
-
