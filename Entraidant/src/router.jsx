@@ -12,6 +12,8 @@ import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAd
 import DemarcheDetail from "./pages/Demarches/pages/Administratives/DemarcheDetail.jsx";
 import AideDetail from "./pages/Demarches/pages/DemarchesFinancieres/AideDetail.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
+import ServiceDetail from "./pages/ServicesExchange/pages/ServiceDetails.jsx";
+import AddService from "./pages/ServicesExchange/pages/AddService.jsx"
 
 
 
@@ -96,6 +98,14 @@ export const router = createBrowserRouter([
             <ServicesExchange />
           </ProtectedRoute>
         ), // Composant de la page d'échange de services
+      },
+      {
+        path: "/services/:id",
+        element: <ServiceDetail/>
+      },
+      {
+        path: "service/create",
+        element: <AddService/>
       },
       {
         path: "/messagerie", // Chemin vers la page de messagerie

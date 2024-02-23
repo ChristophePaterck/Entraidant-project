@@ -1,0 +1,15 @@
+.form {
+  max-width: 500px;
+  flex: 1 1 auto;
+}
+
+.editingFormService {
+  input {
+    max-width: 10rem;
+    border: none;
+    padding-left: 0.5rem;
+  }
+  textarea {
+    border: none;
+  }
+}

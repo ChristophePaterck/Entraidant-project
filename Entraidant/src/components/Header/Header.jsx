@@ -21,17 +21,19 @@ function Header() {
         <h1>Entraidant</h1>
       </div>
       {user ? (
-        <div>
-          <NavLink to="/profil" className={styles.headerListXs}>
-            <button className="btn btn-primary mr-15">
-              <span>Profile</span>
-            </button>
-          </NavLink>
+       
+          <div>
+            <NavLink to="/profil" className={styles.headerListXs}>
+              <button className="btn btn-primary mr-15">
+                <span>Profile</span>
+              </button>
+            </NavLink>
 
-          <button className="btn btn-primary mr-15" onClick={() => signout()}>
-            <span>Déconnexion</span>
-          </button>
-        </div>
+            <button className="btn btn-primary mr-15" onClick={() => signout()}>
+              <span>Déconnexion</span>
+            </button>
+          </div>
+       
       ) : (
         <div>
           <NavLink to="/signin" className={styles.headerListXs}>
