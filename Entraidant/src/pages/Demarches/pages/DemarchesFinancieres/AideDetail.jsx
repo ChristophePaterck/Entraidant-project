@@ -48,8 +48,7 @@ function AideDetail() {
   return (
     <div className="flex-fill d-flex align-items-center justify-content-center">
       <div className={`${styles.form} d-flex flex-column card p-20`}>
-        <h3>{aide.titre}</h3>
-        <p>{aide.details}</p>
+        <h3 className="mb-20">{aide.titre}</h3>
         <h4>description</h4>
         <p>{aide.description}</p>
         <h4>Pour qui ?</h4>
