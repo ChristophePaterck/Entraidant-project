@@ -52,6 +52,8 @@ function AddService() {
     // Affichage des données de l'utilisateur dans la console
     credentials.user_id = userId;
     credentials.date = new Date();
+    credentials.tag_id = 5;
+    console.log(credentials.tag_id)
     try {
       clearErrors(); // Efface les erreurs précédentes
       const response = await fetch(
