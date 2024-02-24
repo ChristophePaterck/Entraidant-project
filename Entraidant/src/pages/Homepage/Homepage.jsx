@@ -1,6 +1,7 @@
 import styles from "./Homepage.module.scss"; // Importation des styles spécifiques pour la page d'accueil
 import accueil from "../../../public/img/accueil.png"; // Importation de l'image d'accueil
 import files from "../../../public/img/files.svg";
+import question from "../../../public/img/question-mark.svg"
 import services from "../../../public/img/services.svg";
 import chat from "../../../public/img/chat.svg";
 import healthcare from "../../../public/img/healthcare.svg"
@@ -21,9 +22,9 @@ function Homepage() {
             <img
               src={files}
               alt="logo de document"
-              className="mb-20 ml-30 mt-15"
+              className="mb-20 ml-15 mt-15"
             />
-            <h4 className="ml-30">Démarches</h4>
+            <h4 className="ml-15">Démarches</h4>
           </NavLink>
           <NavLink
             to="/specialistes"
@@ -32,9 +33,9 @@ function Homepage() {
             <img
               src={healthcare}
               alt="logo deux mains tiennent un coeur"
-              className="mb-20 ml-30 mt-15"
+              className="mb-20 ml-15 mt-15"
             />
-            <h4 className="ml-30">Spécialistes</h4>
+            <h4 className="ml-15">Spécialistes</h4>
           </NavLink>
           <NavLink
             to="/services"
@@ -43,9 +44,9 @@ function Homepage() {
             <img
               src={services}
               alt="logo deux mains tiennent un coeur"
-              className="mb-20 ml-30 mt-15"
+              className="mb-20 ml-15 mt-15"
             />
-            <h4 className="ml-30"> Services</h4>
+            <h4 className="ml-15"> Services</h4>
           </NavLink>
           <NavLink
             to="/messagerie"
@@ -54,16 +55,25 @@ function Homepage() {
             <img
               src={chat}
               alt="logo messagerie"
-              className="mb-20 ml-30 mt-15"
+              className="mb-20 ml-15 mt-15"
             />
-            <h4 className="ml-30">Messagerie</h4>
+            <h4 className="ml-15">Messagerie</h4>
+          </NavLink>
+          <NavLink
+            to="/quisommesnous"
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center `}
+          >
+            <img
+              src={question}
+              alt="logo messagerie"
+              className="mb-20 ml-15 mt-15"
+            />
+            <h4 className="ml-15">Qui sommes Nous</h4>
           </NavLink>
         </div>
       </nav>
       {/* Conteneur principal */}
-      <div
-        className={`${styles.mainContainerXs} ${styles.mainContainer}  `}
-      >
+      <div className={`${styles.mainContainerXs} ${styles.mainContainer}  `}>
         {/* Contenu principal */}
         <div className="d-flex">
           {/* Texte d'accueil */}

@@ -17,21 +17,18 @@ function Header() {
         <img src={logo} alt="Entraidant logo" />
       </NavLink>
 
-     
       {user ? (
-       
-          <div>
-            <NavLink to="/profil" className={styles.headerListXs}>
-              <button className="btn btn-primary mr-15">
-                <span>Profile</span>
-              </button>
-            </NavLink>
-
-            <button className="btn btn-primary mr-15" onClick={() => signout()}>
-              <span>Déconnexion</span>
+        <div>
+          <NavLink to="/profil" className={styles.headerListXs}>
+            <button className="btn btn-primary mr-15">
+              <span>Profile</span>
             </button>
-          </div>
-       
+          </NavLink>
+
+          <button className="btn btn-primary mr-15" onClick={() => signout()}>
+            <span>Déconnexion</span>
+          </button>
+        </div>
       ) : (
         <div>
           <NavLink to="/signin" className={styles.headerListXs}>
@@ -40,7 +37,7 @@ function Header() {
             </button>
           </NavLink>
           <NavLink to="/signup" className={styles.headerListXs}>
-            <button className="btn btn-primary mr-15">
+            <button className="btn  mr-15">
               <span>Inscription</span>
             </button>
           </NavLink>
