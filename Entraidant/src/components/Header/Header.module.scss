@@ -5,10 +5,9 @@
 .header {
   position: relative;
   padding: 0.5rem 2rem;
-  height: 80px;
+  height: 70px;
   background-color: white;
   box-shadow: var(--box-shadow-nav) ;
-  color: var(--primary);
   img {
     width: 50px;
   }
@@ -31,10 +30,6 @@
     padding-left: 1rem;
   }
  }
-
-
-
-
 
 .burgerMenuXs {
   display: none;
