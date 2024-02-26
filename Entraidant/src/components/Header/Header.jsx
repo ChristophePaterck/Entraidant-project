@@ -14,18 +14,26 @@ function Header() {
       className={`${styles.header} ${styles.headerXs} d-flex flex-row align-items-center space-between`}
     >
       <NavLink to="/">
-        <img src={logo} alt="Entraidant logo" />
+        <i
+          className="fa-solid fa-house fa-xl"
+          style={{ color: "var(--primary)" }}
+        ></i>
       </NavLink>
+
+      <img src={logo} alt="Entraidant logo" />
 
       {user ? (
         <div>
           <NavLink to="/profil" className={styles.headerListXs}>
-            <button className="btn btn-reverse-primary mr-15">
+            <button className="btn btn-primary mr-15">
               <span>Profile</span>
             </button>
           </NavLink>
 
-          <button className="btn btn-primary mr-15" onClick={() => signout()}>
+          <button
+            className={`${styles.headerListXs} btn btn-primary mr-15`}
+            onClick={() => signout()}
+          >
             <span>Déconnexion</span>
           </button>
         </div>

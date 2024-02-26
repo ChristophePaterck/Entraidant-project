@@ -1,6 +1,5 @@
 @use "../../../../assets/styles/mixins" as mixin;
 
-
 .itemCard {
   width: 90%;
   background-color: #ffffff;
@@ -14,8 +13,8 @@
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-    }
-    button {
+  }
+  button {
     background-color: var(--primary);
     color: #ffffff;
     border: none;
@@ -27,15 +26,13 @@
   }
 }
 
-   
-
 .searchBarContainer {
   width: 90%;
   margin-bottom: 20px;
   margin-left: 9rem;
   margin-top: 3rem;
   @include mixin.xs {
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-top: 5rem;
   }
 }
@@ -48,6 +45,9 @@
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  @include mixin.xs {
+  width: 15rem;
+  }
 }
 
 .searchButton {
@@ -64,8 +64,18 @@
 }
 
 .demarcheTitle {
+  background-color: white;
   text-align: center;
   margin-top: 1rem;
+  border: 1px solid var(--gray-2);
+  width: 30rem;
+  margin: 2rem auto;
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  border-radius: 5px;
+  @include mixin.xs {
+    width: 20rem;
+  }
 }
 
 .selectWrapper {
@@ -86,6 +96,10 @@
   cursor: pointer;
   outline: none;
   width: 200px; /* ajustez la largeur selon vos besoins */
+  @include mixin.xs {
+    width: 5rem;
+    padding: 0 0 0 0.5rem;
+  }
 }
 
 .selectArrow {
@@ -97,7 +111,7 @@
 }
 
 .selectArrow::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 0;

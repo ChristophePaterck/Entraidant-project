@@ -1,6 +1,10 @@
 @use "../../assets/styles/mixins" as mixin;
 
 
+.nav {
+  background-color: white;
+}
+
 .homepageLink {
   margin: 0 2rem;
   height: 5rem;

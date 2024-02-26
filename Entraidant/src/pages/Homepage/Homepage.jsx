@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom"; // Importation de NavLink pour gére
 function Homepage() {
   return (
     <>
-      <nav className="mt-30">
+      <nav className={`mt-30 ${styles.nav}`}>
         <div
           className={`${styles.containerCardXs} d-flex justify-content-center space-between mb-20`}
         >

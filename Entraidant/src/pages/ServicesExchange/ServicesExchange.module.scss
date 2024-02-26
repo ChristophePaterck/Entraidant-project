@@ -1,4 +1,6 @@
 
+@use "../../assets/styles/mixins" as mixin;
+
 .serviceTitle {
   text-align: center;
 }
@@ -34,6 +36,9 @@
   margin-bottom: 20px;
   margin-left: 9rem;
   margin-top: 3rem;
+  @include mixin.xs {
+    margin: 4rem 4rem 1rem;
+  }
 }
 
 .searchTerm {

@@ -56,7 +56,7 @@ function AideDetail() {
         <p>{aide.conditions}</p>
         <h4>Condition de revenu</h4>
         <p>{aide.montant}</p>
-        <NavLink to="/aides">
+        <NavLink to="/demarches/aides">
           <div className="mt-30 d-flex justify-content-center align-items-center">
             <button className="btn btn-reverse-primary">
               Retour au aides
