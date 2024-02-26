@@ -51,7 +51,7 @@ function DemarcheDetail() {
       <div className={`${styles.form} d-flex flex-column p-20`}>
         <h3>{demarche.titre}</h3>
         <p>{demarche.details}</p>
-        <NavLink to="/administratives">
+        <NavLink to="/demarches/administratives">
           <div className="mt-30 d-flex justify-content-center align-items-center">
             <button className="btn btn-reverse-primary">
               Retour au démarches

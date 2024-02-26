@@ -74,19 +74,23 @@ export const router = createBrowserRouter([
       {
         path: "/demarches", // Chemin vers la page des démarches
         element: <Demarches />, // Composant de la page des démarches
+        children: [
+          {
+            path: "administratives",
+            element: <Administratives />,
+          },
+          {
+            path: "aides",
+            element: <DemarchesFinancieres />,
+          },
+        ],
       },
-      {
-        path: "/administratives",
-        element: <Administratives />,
-      },
+
       {
         path: "/demarche/:id",
         element: <DemarcheDetail />,
       },
-      {
-        path: "/aides",
-        element: <DemarchesFinancieres />,
-      },
+
       {
         path: "/aide/:id",
         element: <AideDetail />,
@@ -101,11 +105,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <ServiceDetail/>
+        element: <ServiceDetail />,
       },
       {
         path: "service/create",
-        element: <AddService/>
+        element: <AddService />,
       },
       {
         path: "/messagerie", // Chemin vers la page de messagerie
