@@ -7,7 +7,7 @@ import { lazy } from "react";
 import { rootLoader } from "./loaders/rootLoader.jsx";
 import App from "./App/App.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
-import ServiceForm from "./pages/ServicesExchange/ServiceForm.jsx";
+// import ServiceForm from "./pages/ServicesExchange/ServiceForm.jsx";
 import Administratives from "./pages/Demarches/pages/Administratives/DemarchesAdministratives.jsx";
 import DemarcheDetail from "./pages/Demarches/pages/Administratives/DemarcheDetail.jsx";
 import AideDetail from "./pages/Demarches/pages/DemarchesFinancieres/AideDetail.jsx";
@@ -111,10 +111,10 @@ export const router = createBrowserRouter([
         path: "/messagerie", // Chemin vers la page de messagerie
         element: <Messagerie />, // Composant de la page de messagerie
       },
-      {
-        path: "/servicesform",
-        element: <ServiceForm />,
-      },
+      // {
+      //   path: "/servicesform",
+      //   element: <ServiceForm />,
+      // },
       {
         path: "/signup", // Chemin vers la page d'inscription
         element: <SignUp />, // Composant de la page d'inscription

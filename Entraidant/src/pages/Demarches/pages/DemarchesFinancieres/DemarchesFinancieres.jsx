@@ -26,7 +26,7 @@ function DemarchesFinancieres() {
 
   return (
     <>
-      <h2 className={styles.demarcheTitle}>Aides</h2>
+      <h2 className={styles.demarcheTitle}>Aides financières</h2>
       <div className={`${styles.searchBarContainer}`}>
         <form className="d-flex">
           <input
@@ -61,7 +61,7 @@ function DemarchesFinancieres() {
             <p>{aide.resume}</p>
             <p>Catégorie: {aide.categorie}</p>
             <div className="d-flex">
-              <div className="Name">
+              <div>
                 <NavLink to={`/aide/${aide.id}`}>
                   <button>+ d'infos</button>
                 </NavLink>

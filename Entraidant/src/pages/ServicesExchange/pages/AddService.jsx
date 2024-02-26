@@ -158,7 +158,7 @@ function AddService() {
           </div>
         )}
         <div>
-          <button disabled={isSubmitting} className="btn btn-primary mt-30">
+          <button disabled={isSubmitting} className="btn btn-reverse-primary mt-30">
             Ajouter
           </button>
         </div>

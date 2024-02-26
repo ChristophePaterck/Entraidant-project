@@ -1,9 +1,6 @@
 @use "../../assets/styles/mixins" as mixin;
 
 
-.navBar {
-
-}
 .homepageLink {
   margin: 0 2rem;
   height: 5rem;
@@ -17,8 +14,7 @@
 
   @include mixin.xs {
     width: 15rem;
-    height: 7rem;
-    margin: 0.5rem auto;
+    height: 5rem;
     box-shadow: none;
   }
 }
@@ -33,8 +29,13 @@
   display: none; /* Cacher le titre sur hover */
 }
 
+.homepageLink:hover  {
+  transition: 0.2s;
+  transform: scale(0.95); /* Cacher le titre sur hover */
+}
+
 .homepageLink p {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 4rem 2rem;
   display: none; /* Cacher le paragraphe par défaut */
   position: absolute; /* Positionner le paragraphe au-dessus */
@@ -50,31 +51,29 @@
   background: url("../../../public/img/Homepage.jpg") center no-repeat;
   background-size: 100%;
   width: 100%;
+  height: 65vh;
+  @include mixin.xs {
+    height: 100vh;
+  }
 }
+
+
 
 .containerCardXs {
   @include mixin.xs {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    margin: 3rem;
-  }
-}
-
-.cardXs {
-}
-
-.mainContainerXs {
-  background: url("../../../public/img/accueil.png") cover;
-  @include mixin.xs {
+    align-items: center;
+    gap: 2rem;
+    // height: 15rem;
     margin-top: 5rem;
-    p {
-      display: none;
-    }
+    // margin-bottom: -5rem;
+   
   }
 }
+
+
+
 
 .homepageText {
   font-size: 1rem;
@@ -95,15 +94,6 @@
   }
 }
 
-.homepageImg {
-  width: 20%;
-  border-radius: 20px;
-  margin-left: 10rem;
-  margin-top: 2rem;
-}
 
-.homepageImgXs {
-  @include mixin.xs {
-    display: none;
-  }
-}
+
+

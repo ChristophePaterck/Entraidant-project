@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext.jsx";
+import Loading from "../../../components/Loading/Loading.jsx";
 
 function ServiceForm() {
   const {user} = useContext(AuthContext)
@@ -16,6 +17,7 @@ function ServiceForm() {
   });
   const [isEditing, setIsEditing] = useState(false); // État pour suivre si l'utilisateur est en train de modifier
 
+  
   useEffect(() => {
     const fetchService = async () => {
       try {
@@ -77,7 +79,7 @@ function ServiceForm() {
   };
 
   if (!service) {
-    return <div>Loading</div>;
+    return <Loading/>;
   }
 
   const isCurrentUserOwner = user.id === service.user_id
@@ -97,9 +99,11 @@ function ServiceForm() {
 
        {/* Bouton de modification (affiché uniquement si l'utilisateur est le propriétaire du service) */}
        {isCurrentUserOwner && !isEditing && (
-         <button className="mt-15" onClick={() => setIsEditing(true)}>
-           Modifier
-         </button>
+         <div className="d-flex justify-content-center">
+           <button className="mt-15 btn" onClick={() => setIsEditing(true)}>
+             Modifier
+           </button>
+         </div>
        )}
 
        {/* Formulaire d'édition (affiché uniquement si l'utilisateur est le propriétaire du service et que le formulaire est en mode édition) */}

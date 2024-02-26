@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../../../data/aides.json";
 import styles from "./AideDetail.module.scss";
+import { NavLink } from "react-router-dom";
 
 function fetchData(id) {
   try {
@@ -55,6 +56,13 @@ function AideDetail() {
         <p>{aide.conditions}</p>
         <h4>Condition de revenu</h4>
         <p>{aide.montant}</p>
+        <NavLink to="/aides">
+          <div className="mt-30 d-flex justify-content-center align-items-center">
+            <button className="btn btn-reverse-primary">
+              Retour au aides
+            </button>
+          </div>
+        </NavLink>
       </div>
     </div>
   );

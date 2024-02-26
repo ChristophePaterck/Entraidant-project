@@ -16,7 +16,7 @@ function Homepage() {
           {/* Liens vers différentes sections */}
           <NavLink
             to="/demarches"
-            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
+            className={`${styles.homepageLink}  mt-30 d-flex justify-content-center align-items-center`}
           >
             <h4 className="ml-15">Démarches</h4>
             <p>Trouvez les démarches et aides qui correpondent à votre situation.</p>
