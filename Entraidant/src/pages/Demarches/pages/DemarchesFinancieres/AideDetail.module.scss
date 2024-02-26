@@ -1,4 +1,12 @@
+@use "../../../../assets/styles/mixins" as mixin;
+
 .form {
-  max-width: 500px;
+  max-width: 30rem;
   flex: 1 1 auto;
+  border: 1px var(--gray-2) solid;
+  box-shadow: var(--box-shadow) ;
+  border-radius: 5px;
+  @include mixin.xs {
+    max-width: 20rem;
+  }
 }

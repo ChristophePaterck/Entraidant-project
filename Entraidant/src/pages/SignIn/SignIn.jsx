@@ -114,7 +114,7 @@ function Signin() {
             )}
             {/* Bouton de soumission du formulaire */}
             <div>
-              <button disabled={isSubmitting} className="btn btn-primary">
+              <button disabled={isSubmitting} className="btn btn-reverse-primary">
                 Connexion
               </button>
             </div>

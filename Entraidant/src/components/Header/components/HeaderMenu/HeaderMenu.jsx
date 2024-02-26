@@ -9,7 +9,6 @@ function HeaderMenu() {
       </NavLink>
 
       <NavLink to="/signup">
-        {" "}
         <li>inscription</li>
       </NavLink>
     </ul>

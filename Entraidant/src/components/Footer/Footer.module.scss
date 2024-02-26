@@ -3,7 +3,7 @@
 .footer {
   background-color: var(--primary);
   color: white;
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -18,10 +18,10 @@
 
 .footerXs {
   @include mixin.xs {
-    position: fixed;
     height: 5rem;
     flex-direction: column;
     p {
+      text-align: center;
       display: inline;
       margin:0.5rem;
     }

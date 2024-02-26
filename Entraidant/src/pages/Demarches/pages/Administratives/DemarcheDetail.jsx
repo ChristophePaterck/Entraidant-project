@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../../../data/demarchesdata.json";
 import styles from "./DemarcheDetail.module.scss";
+import { NavLink } from "react-router-dom";
 
 function fetchData(id) {
   try {
@@ -47,9 +48,16 @@ function DemarcheDetail() {
 
   return (
     <div className="flex-fill d-flex align-items-center justify-content-center">
-      <div className={`${styles.form} d-flex flex-column card p-20`}>
+      <div className={`${styles.form} d-flex flex-column p-20`}>
         <h3>{demarche.titre}</h3>
         <p>{demarche.details}</p>
+        <NavLink to="/administratives">
+          <div className="mt-30 d-flex justify-content-center align-items-center">
+            <button className="btn btn-reverse-primary">
+              Retour au démarches
+            </button>
+          </div>
+        </NavLink>
       </div>
     </div>
   );

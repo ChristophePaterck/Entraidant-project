@@ -80,12 +80,12 @@ function Profile() {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <button className="mt-30" type="submit">
+            <div className="d-flex space-around">
+              <button className="mt-30 btn btn-primary" type="submit">
                 Enregistrer
               </button>
               <button
-                className="mt-30"
+                className="mt-30 btn btn-reverse-primary"
                 type="button"
                 onClick={() => setEditing(false)}
               >
@@ -119,7 +119,7 @@ function Profile() {
           </li>
         </ul>
         <div className="d-flex justify-content-center">
-          <button className="mt-30" onClick={() => setEditing(true)}>
+          <button className="mt-30 btn btn-reverse-primary" onClick={() => setEditing(true)}>
             Modifier
           </button>
         </div>

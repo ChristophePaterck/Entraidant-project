@@ -20,7 +20,7 @@ function Header() {
       {user ? (
         <div>
           <NavLink to="/profil" className={styles.headerListXs}>
-            <button className="btn btn-primary mr-15">
+            <button className="btn btn-reverse-primary mr-15">
               <span>Profile</span>
             </button>
           </NavLink>
@@ -37,7 +37,7 @@ function Header() {
             </button>
           </NavLink>
           <NavLink to="/signup" className={styles.headerListXs}>
-            <button className="btn  mr-15">
+            <button className="btn btn-reverse-primary mr-15">
               <span>Inscription</span>
             </button>
           </NavLink>

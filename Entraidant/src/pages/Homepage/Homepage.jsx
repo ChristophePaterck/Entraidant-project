@@ -1,10 +1,9 @@
 import styles from "./Homepage.module.scss"; // Importation des styles spécifiques pour la page d'accueil
-import accueil from "../../../public/img/accueil.png"; // Importation de l'image d'accueil
 import files from "../../../public/img/files.svg";
-import question from "../../../public/img/question-mark.svg"
+import question from "../../../public/img/question-mark.svg";
 import services from "../../../public/img/services.svg";
 import chat from "../../../public/img/chat.svg";
-import healthcare from "../../../public/img/healthcare.svg"
+import healthcare from "../../../public/img/healthcare.svg";
 import { NavLink } from "react-router-dom"; // Importation de NavLink pour gérer les liens de navigation
 
 function Homepage() {
@@ -17,58 +16,38 @@ function Homepage() {
           {/* Liens vers différentes sections */}
           <NavLink
             to="/demarches"
-            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center`}
+            className={`${styles.homepageLink}  mt-30 d-flex justify-content-center align-items-center`}
           >
-            <img
-              src={files}
-              alt="logo de document"
-              className="mb-20 ml-15 mt-15"
-            />
             <h4 className="ml-15">Démarches</h4>
+            <p>Trouvez les démarches et aides qui correpondent à votre situation.</p>
           </NavLink>
           <NavLink
             to="/specialistes"
-            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center`}
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >
-            <img
-              src={healthcare}
-              alt="logo deux mains tiennent un coeur"
-              className="mb-20 ml-15 mt-15"
-            />
             <h4 className="ml-15">Spécialistes</h4>
+            <p >Trouvez un spécialiste prêt de chez vous.</p>
           </NavLink>
           <NavLink
             to="/services"
-            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center`}
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >
-            <img
-              src={services}
-              alt="logo deux mains tiennent un coeur"
-              className="mb-20 ml-15 mt-15"
-            />
             <h4 className="ml-15"> Services</h4>
+            <p>Proposez ou recevez de l'aide gratuitement.</p>
           </NavLink>
           <NavLink
             to="/messagerie"
-            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center `}
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >
-            <img
-              src={chat}
-              alt="logo messagerie"
-              className="mb-20 ml-15 mt-15"
-            />
             <h4 className="ml-15">Messagerie</h4>
+            <p>On parle de tout et ça fait du bien.</p>
           </NavLink>
           <NavLink
             to="/quisommesnous"
-            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center `}
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >
-            <img
-              src={question}
-              alt="logo messagerie"
-              className="mb-20 ml-15 mt-15"
-            />
             <h4 className="ml-15">Qui sommes Nous</h4>
+            <p>Pour en savoir plus sur cette plateforme.</p>
           </NavLink>
         </div>
       </nav>
