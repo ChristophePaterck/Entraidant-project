@@ -2,12 +2,14 @@ import styles from "./AddService.module.scss"; // Importation des styles spécif
 import { useForm } from "react-hook-form"; // Importation de la fonction useForm pour gérer les formulaires dans React
 import * as yup from "yup"; // Importation de yup pour la validation du formulaire
 import { yupResolver } from "@hookform/resolvers/yup"; // Importation de yupResolver pour intégrer yup avec react-hook-form
-import { useNavigate } from "react-router-dom"; // Importation de useNavigate pour la navigation programmée dans React
+import { NavLink, useNavigate } from "react-router-dom"; // Importation de useNavigate pour la navigation programmée dans React
 import { AuthContext } from "../../../context/AuthContext.jsx";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function AddService() {
   const { user } = useContext(AuthContext);
+   const [isNewServiceConfirmed, setIsNewServiceConfirmed] =
+     useState(false);
 
   // Schéma de validation du formulaire avec yup
   const validationSchema = yup.object({
@@ -17,12 +19,12 @@ function AddService() {
       .min(5, "Le nom  doit contenir au moins 5 caractères"),
     content: yup
       .string()
-      .required("Le prénom est requis")
-      .min(10, "Le prénom doit contenir au moins 10 caractères"),
+      .required("Vous devez décrire le service proposé")
+      .min(15, "La description doit contenir au moins 15 caractères"),
     location: yup
       .string()
       .required("La localisation est requise")
-      .min(5, "Le nom doit contenir au moins 5 caractères"),
+      .min(5, "la localisation doit contenir au moins 5 caractères"),
   });
 
   // Initialisation des valeurs par défaut du formulaire
@@ -74,6 +76,7 @@ function AddService() {
       // Si la réponse du serveur est "ok" (statut HTTP 200), retourne le corps de la réponse
       if (response.ok) {
         console.log(body);
+        setIsNewServiceConfirmed(true)
         return body;
       } else {
         // Si la réponse contient des données JSON, lance une exception avec ce corps
@@ -103,66 +106,81 @@ function AddService() {
   });
   return (
     <div className="flex-fill d-flex align-items-center justify-content-center">
-      <form
-        onSubmit={submit}
-        className={`${styles.form} d-flex flex-column card p-20`}
-      >
-        <h2 className="mb-10">Service proposé</h2>
-        <div className="mb-10 d-flex flex-column ">
-          <label className="label" htmlFor="name">
-            Nom du service
-          </label>
-          <input
-            className="input"
-            type="text"
-            name="name"
-            id="name"
-            {...register("name")}
-          />
-          {errors.name && <p className="form-error">{errors.name.message}</p>}
+      {isNewServiceConfirmed ? (
+        <div
+          className={`${styles.confirmAddForm} d-flex flex-column mt-15 text-success`}
+        >
+          <h3>Merci !</h3>
+          <p>Service Ajouté avec succès </p>
+          <NavLink to="/services" className="d-flex justify-content-center">
+            <button className="btn mt-15"> Retour au service</button>
+          </NavLink>
         </div>
-        <div className="mb-10 d-flex flex-column ">
-          <label className="label" htmlFor="content">
-            Description
-          </label>
-          <textarea
-            className="input"
-            type="text"
-            name="content"
-            id="content"
-            {...register("content")}
-          />
-          {errors.content && (
-            <p className="form-error">{errors.content.message}</p>
-          )}
-        </div>
-        <div className="mb-10 d-flex flex-column ">
-          <label className="label" htmlFor="location">
-            Localisation
-          </label>
-          <input
-            className="input"
-            type="text"
-            name="location"
-            id="location"
-            {...register("location")}
-          />
-          {errors.location && (
-            <p className="form-error">{errors.location.message}</p>
-          )}
-        </div>
-
-        {errors.generic && (
-          <div className="mb-10">
-            <p className="form-error">{errors.generic.message}</p>
+      ) : (
+        <form
+          onSubmit={submit}
+          className={`${styles.form} d-flex flex-column card p-20`}
+        >
+          <h2 className="mb-10">Service proposé</h2>
+          <div className="mb-10 d-flex flex-column ">
+            <label className="label" htmlFor="name">
+              Nom du service
+            </label>
+            <input
+              className="input"
+              type="text"
+              name="name"
+              id="name"
+              {...register("name")}
+            />
+            {errors.name && <p className="form-error">{errors.name.message}</p>}
           </div>
-        )}
-        <div>
-          <button disabled={isSubmitting} className="btn btn-reverse-primary mt-30">
-            Ajouter
-          </button>
-        </div>
-      </form>
+          <div className="mb-10 d-flex flex-column ">
+            <label className="label" htmlFor="content">
+              Description
+            </label>
+            <textarea
+              className="input"
+              type="text"
+              name="content"
+              id="content"
+              {...register("content")}
+            />
+            {errors.content && (
+              <p className="form-error">{errors.content.message}</p>
+            )}
+          </div>
+          <div className="mb-10 d-flex flex-column ">
+            <label className="label" htmlFor="location">
+              Localisation
+            </label>
+            <input
+              className="input"
+              type="text"
+              name="location"
+              id="location"
+              {...register("location")}
+            />
+            {errors.location && (
+              <p className="form-error">{errors.location.message}</p>
+            )}
+          </div>
+
+          {errors.generic && (
+            <div className="mb-10">
+              <p className="form-error">{errors.generic.message}</p>
+            </div>
+          )}
+          <div>
+            <button
+              disabled={isSubmitting}
+              className="btn btn-reverse-primary mt-30"
+            >
+              Ajouter
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

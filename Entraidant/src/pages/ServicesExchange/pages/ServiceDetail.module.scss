@@ -26,3 +26,15 @@
     border: none;
   }
 }
+
+.confirmEditForm {
+  max-width: 22rem;
+  flex: 1 1 auto;
+  padding: 2rem;
+  border: 1px var(--gray-2) solid;
+  box-shadow: var(--box-shadow) ;
+  border-radius: 5px;
+  h3 , p {
+    text-align: center;
+  }
+}

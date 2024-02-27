@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext.jsx";
 import Loading from "../../../components/Loading/Loading.jsx";
+import { NavLink } from "react-router-dom";
 
 function ServiceForm() {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const { id } = useParams(); // Récupère l'ID du service depuis l'URL
   console.log("id du service ", id);
   const [service, setService] = useState(null);
@@ -16,8 +17,8 @@ function ServiceForm() {
     location: "",
   });
   const [isEditing, setIsEditing] = useState(false); // État pour suivre si l'utilisateur est en train de modifier
+  const [isModificationConfirmed, setIsModificationConfirmed] = useState(false);
 
-  
   useEffect(() => {
     const fetchService = async () => {
       try {
@@ -73,83 +74,94 @@ function ServiceForm() {
       // Mettre à jour l'état du service avec les nouvelles données
       setService(response.data);
       setIsEditing(false); // Passer l'état d'édition à false une fois les modifications soumises
+      setIsModificationConfirmed(true);
     } catch (error) {
       console.error("Error updating service:", error);
     }
   };
 
   if (!service) {
-    return <Loading/>;
+    return <Loading />;
   }
 
-  const isCurrentUserOwner = user.id === service.user_id
+  const isCurrentUserOwner = user.id === service.user_id;
 
- return (
-   <div className="flex-fill d-flex align-items-center justify-content-center">
-     <div className={`${styles.form} d-flex flex-column card p-20`}>
-       <h3 className="mb-20">{service.name}</h3>
+  return (
+    <div className="flex-fill d-flex align-items-center justify-content-center">
+      {isModificationConfirmed ? (
+        <div className={styles.confirmEditForm}>
+          <h3>Merci !</h3>
+          <p>Votre modification a été prise en compte </p>
+          <NavLink to="/services" className="d-flex justify-content-center">
+            <button className="btn mt-15"> Retour au service</button>
+          </NavLink>
+        </div>
+      ) : (
+        <div className={`${styles.form} d-flex flex-column card p-20`}>
+          <h3 className="mb-20">{service.name}</h3>
 
-       {/* Affichage des informations du service */}
-       <div>
-         <h4>Description</h4>
-         <p>{service.content}</p>
-         <h4>Localisation</h4>
-         <p>{service.location}</p>
-       </div>
+          {/* Affichage des informations du service */}
+          <div>
+            <h4>Description</h4>
+            <p>{service.content}</p>
+            <h4>Localisation</h4>
+            <p>{service.location}</p>
+          </div>
 
-       {/* Bouton de modification (affiché uniquement si l'utilisateur est le propriétaire du service) */}
-       {isCurrentUserOwner && !isEditing && (
-         <div className="d-flex justify-content-center">
-           <button className="mt-15 btn" onClick={() => setIsEditing(true)}>
-             Modifier
-           </button>
-         </div>
-       )}
+          {/* Bouton de modification (affiché uniquement si l'utilisateur est le propriétaire du service) */}
+          {isCurrentUserOwner && !isEditing && (
+            <div className="d-flex justify-content-center">
+              <button className="mt-15 btn" onClick={() => setIsEditing(true)}>
+                Modifier
+              </button>
+            </div>
+          )}
 
-       {/* Formulaire d'édition (affiché uniquement si l'utilisateur est le propriétaire du service et que le formulaire est en mode édition) */}
-       {isEditing && isCurrentUserOwner && (
-         <form onSubmit={handleSubmit} className={styles.editingFormService}>
-           <div className="mb-20 d-flex flex-column ">
-             <label className="mb-10" htmlFor="content">
-               Description:
-             </label>
-             <textarea
-               type="text"
-               id="content"
-               name="content"
-               value={formData.content}
-               onChange={handleInputChange}
-             />
-           </div>
-           <div className="mb-20 d-flex flex-column">
-             <label className="mb-10" htmlFor="location">
-               Localisation:
-             </label>
-             <input
-               type="text"
-               id="location"
-               name="location"
-               value={formData.location}
-               onChange={handleInputChange}
-             />
-           </div>
-           <div>
-             <button className="mt-15" type="submit">
-               Enregistrer
-             </button>
-             <button
-               className="mt-15 ml-10"
-               type="button"
-               onClick={() => setIsEditing(false)}
-             >
-               Annuler
-             </button>
-           </div>
-         </form>
-       )}
-     </div>
-   </div>
- );
+          {/* Formulaire d'édition (affiché uniquement si l'utilisateur est le propriétaire du service et que le formulaire est en mode édition) */}
+          {isEditing && isCurrentUserOwner && (
+            <form onSubmit={handleSubmit} className={styles.editingFormService}>
+              <div className="mb-20 d-flex flex-column ">
+                <label className="mb-10" htmlFor="content">
+                  Description:
+                </label>
+                <textarea
+                  type="text"
+                  id="content"
+                  name="content"
+                  value={formData.content}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="mb-20 d-flex flex-column">
+                <label className="mb-10" htmlFor="location">
+                  Localisation:
+                </label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div>
+                <button className="mt-15" type="submit">
+                  Enregistrer
+                </button>
+                <button
+                  className="mt-15 ml-10"
+                  type="button"
+                  onClick={() => setIsEditing(false)}
+                >
+                  Annuler
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default ServiceForm;
