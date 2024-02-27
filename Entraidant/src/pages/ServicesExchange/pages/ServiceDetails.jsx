@@ -92,7 +92,7 @@ function ServiceForm() {
         <div className={styles.confirmEditForm}>
           <h3>Merci !</h3>
           <p>Votre modification a été prise en compte </p>
-          <NavLink to="/services" className="d-flex justify-content-center">
+          <NavLink aria-label="services" to="/services" className="d-flex justify-content-center">
             <button className="btn mt-15"> Retour au service</button>
           </NavLink>
         </div>

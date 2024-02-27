@@ -14,35 +14,35 @@ function Homepage() {
           className={`${styles.containerCardXs} d-flex justify-content-center space-between mb-20`}
         >
           {/* Liens vers différentes sections */}
-          <NavLink
+          <NavLink aria-label='demarches'
             to="/demarches"
             className={`${styles.homepageLink}  mt-30 d-flex justify-content-center align-items-center`}
           >
             <h4 className="ml-15">Démarches</h4>
             <p>Trouvez les démarches et aides qui correpondent à votre situation.</p>
           </NavLink>
-          <NavLink
+          <NavLink aria-label='specialistes'
             to="/specialistes"
             className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >
             <h4 className="ml-15">Spécialistes</h4>
             <p >Trouvez un spécialiste prêt de chez vous.</p>
           </NavLink>
-          <NavLink
+          <NavLink aria-label='services'
             to="/services"
             className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >
             <h4 className="ml-15"> Services</h4>
             <p>Proposez ou recevez de l'aide gratuitement.</p>
           </NavLink>
-          <NavLink
+          <NavLink aria-label='messagerie'
             to="/messagerie"
             className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >
             <h4 className="ml-15">Messagerie</h4>
             <p>On parle de tout et ça fait du bien.</p>
           </NavLink>
-          <NavLink
+          <NavLink aria-label='quisommesnous'
             to="/quisommesnous"
             className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
           >

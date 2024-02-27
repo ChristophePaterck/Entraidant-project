@@ -9,7 +9,7 @@ function Demarches() {
       <div
         className={` ${styles.container} d-flex justify-content-center mt-30 align-items-center`}
       >
-        <NavLink to="administratives">
+        <NavLink aria-label='administratives' to="administratives">
           <div>
             <button className="btn btn-reverse-primary" type="button">
               Demarches administratives
@@ -17,7 +17,7 @@ function Demarches() {
           </div>
         </NavLink>
 
-        <NavLink to="aides">
+        <NavLink aria-label='aides' to="aides">
           <div>
             <button className="btn btn-reverse-primary" type="button">
               Aides financières

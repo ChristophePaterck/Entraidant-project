@@ -63,7 +63,7 @@ function Administratives() {
             <p>Catégorie: {demarche.categorie}</p>
             <div className="d-flex">
               <div className="Name">
-                <NavLink to={`/demarche/${demarche.id}`}>
+                <NavLink aria-label='se rendre aux démarche choisi' to={`/demarche/${demarche.id}`}>
                   <button>+ d'infos</button>
                 </NavLink>
               </div>
