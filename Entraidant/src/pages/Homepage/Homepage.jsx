@@ -1,9 +1,4 @@
 import styles from "./Homepage.module.scss"; // Importation des styles spécifiques pour la page d'accueil
-import files from "../../../public/img/files.svg";
-import question from "../../../public/img/question-mark.svg";
-import services from "../../../public/img/services.svg";
-import chat from "../../../public/img/chat.svg";
-import healthcare from "../../../public/img/healthcare.svg";
 import { NavLink } from "react-router-dom"; // Importation de NavLink pour gérer les liens de navigation
 
 function Homepage() {

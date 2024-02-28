@@ -106,14 +106,39 @@ function ServiceForm() {
             <p>{service.content}</p>
             <h4>Localisation</h4>
             <p>{service.location}</p>
+            <h4>Contact</h4>
+            <p>{service.user.email}</p>
+            {isCurrentUserOwner ? (
+              <div className="d-flex justify-content-center">
+              </div>
+            ) : (
+              <div className="d-flex justify-content-center">
+                <a href={`mailto:${service.user.email}`}>
+                  <button className="mr-15 btn btn-reverse-primary mt-15">
+                    Contacter
+                  </button>
+                </a>
+                <NavLink to="/services">
+                  <button className="btn btn-reverse-primary mt-15">
+                    Retour
+                  </button>
+                </NavLink>
+              </div>
+            )}
           </div>
 
           {/* Bouton de modification (affiché uniquement si l'utilisateur est le propriétaire du service) */}
           {isCurrentUserOwner && !isEditing && (
-            <div className="d-flex justify-content-center">
-              <button className="mt-15 btn" onClick={() => setIsEditing(true)}>
+            <div className="d-flex justify-content-center ">
+              <button
+                className="mr-15  mt-15 btn btn-reverse-primary"
+                onClick={() => setIsEditing(true)}
+              >
                 Modifier
               </button>
+              <NavLink to="/services" aria-label="Annuler la modification">
+                <button className="mt-15 btn btn-primary">Annuler</button>
+              </NavLink>
             </div>
           )}
 
@@ -144,12 +169,15 @@ function ServiceForm() {
                   onChange={handleInputChange}
                 />
               </div>
-              <div>
-                <button className="mt-15" type="submit">
+              <div className="d-flex justify-content-center">
+                <button
+                  className="mt-15 btn  btn-reverse-primary"
+                  type="submit"
+                >
                   Enregistrer
                 </button>
                 <button
-                  className="mt-15 ml-10"
+                  className="btn btn-primary mt-15 ml-10"
                   type="button"
                   onClick={() => setIsEditing(false)}
                 >

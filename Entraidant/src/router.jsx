@@ -113,7 +113,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/messagerie", // Chemin vers la page de messagerie
-        element: <Messagerie />, // Composant de la page de messagerie
+        element: (
+          <ProtectedRoute>
+            <Messagerie />, // Composant de la page de messagerie
+          </ProtectedRoute>
+        ),
       },
       // {
       //   path: "/servicesform",

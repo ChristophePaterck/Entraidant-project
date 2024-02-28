@@ -217,7 +217,7 @@ function Specialiste() {
         </form>
       </div>
 
-      <div className={styles.buttonContainer}>
+      {/* <div className={styles.buttonContainer}>
         <button onClick={() => handleButtonClick("Nom")}>Nom</button>
         <button onClick={handleFilter}>Filtrer</button>
 
@@ -225,7 +225,7 @@ function Specialiste() {
         <button onClick={() => handleButtonClick("region/ville/departement")}>
           Région/Ville/Département
         </button>
-      </div>
+      </div> */}
 
       <div className={styles.buttonContainerListe}>
 

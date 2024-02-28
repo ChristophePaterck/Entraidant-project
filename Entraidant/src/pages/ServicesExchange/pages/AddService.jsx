@@ -171,13 +171,16 @@ function AddService() {
               <p className="form-error">{errors.generic.message}</p>
             </div>
           )}
-          <div>
+          <div className="d-flex justify-content-center">
             <button
               disabled={isSubmitting}
               className="btn btn-reverse-primary mt-30"
             >
               Ajouter
             </button>
+            <NavLink to="/services" aria-label="Annuler la modification">
+              <button className="mt-15 btn btn-primary mt-30">Annuler</button>
+            </NavLink>
           </div>
         </form>
       )}

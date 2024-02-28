@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import styles from "./ServicesExchange.module.scss"; // Import du fichier SCSS
@@ -92,7 +91,7 @@ function ServicesExchange() {
         </button> */}
             <div className="d-flex justify-content-center">
               <NavLink to="/service/create">
-                <button>Proposer un service</button>
+                <button className="btn ">Proposer un service</button>
               </NavLink>
             </div>
             {/* Liste des services filtrés */}
@@ -107,7 +106,7 @@ function ServicesExchange() {
                   <p>{service.content}</p>
                   <div>
                     <NavLink to={`/services/${service.id}`}>
-                      <button>voir +</button>
+                      <button className="btn">voir +</button>
                     </NavLink>
                   </div>
                 </li>
