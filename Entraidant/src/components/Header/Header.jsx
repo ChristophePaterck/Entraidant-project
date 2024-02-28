@@ -13,7 +13,7 @@ function Header() {
     <header
       className={`${styles.header} ${styles.headerXs} d-flex flex-row align-items-center space-between`}
     >
-      <NavLink to="/">
+      <NavLink aria-label="Retour a la page d'acceuil" to="/">
         <i
           className="fa-solid fa-house fa-xl"
           style={{ color: "var(--primary)" }}
@@ -24,7 +24,7 @@ function Header() {
 
       {user ? (
         <div>
-          <NavLink to="/profil" className={styles.headerListXs}>
+          <NavLink aria-label="se rendre sur profil" to="/profil" className={styles.headerListXs}>
             <button className="btn btn-reverse-primary mr-15">
               <span>Profile</span>
             </button>
@@ -39,12 +39,12 @@ function Header() {
         </div>
       ) : (
         <div>
-          <NavLink to="/signin" className={styles.headerListXs}>
+          <NavLink aria-label='connection' to="/signin" className={styles.headerListXs}>
             <button className="btn btn-primary mr-15">
               <span>Connexion</span>
             </button>
           </NavLink>
-          <NavLink to="/signup" className={styles.headerListXs}>
+          <NavLink aria-label='inscription' to="/signup" className={styles.headerListXs}>
             <button className="btn btn-reverse-primary mr-15">
               <span>Inscription</span>
             </button>

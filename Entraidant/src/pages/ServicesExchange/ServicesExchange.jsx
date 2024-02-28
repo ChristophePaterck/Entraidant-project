@@ -90,8 +90,8 @@ function ServicesExchange() {
           categorie et lieux
         </button> */}
             <div className="d-flex justify-content-center">
-              <NavLink to="/service/create">
-                <button className="btn ">Proposer un service</button>
+              <NavLink aria-label="services et creation " to="/service/create">
+                <button>Proposer un service</button>
               </NavLink>
             </div>
             {/* Liste des services filtrés */}
@@ -105,8 +105,8 @@ function ServicesExchange() {
                   <h4 className="mb-10">{service.name} :</h4>
                   <p>{service.content}</p>
                   <div>
-                    <NavLink to={`/services/${service.id}`}>
-                      <button className="btn">voir +</button>
+                    <NavLink aria-label="services sélectionner" to={`/services/${service.id}`}>
+                      <button>voir +</button>
                     </NavLink>
                   </div>
                 </li>

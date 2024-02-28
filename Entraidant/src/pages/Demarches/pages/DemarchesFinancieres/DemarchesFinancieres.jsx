@@ -62,7 +62,7 @@ function DemarchesFinancieres() {
             <p>Catégorie: {aide.categorie}</p>
             <div className="d-flex">
               <div>
-                <NavLink to={`/aide/${aide.id}`}>
+                <NavLink aria-label='aide selectionner' to={`/aide/${aide.id}`}>
                   <button>+ d'infos</button>
                 </NavLink>
               </div>

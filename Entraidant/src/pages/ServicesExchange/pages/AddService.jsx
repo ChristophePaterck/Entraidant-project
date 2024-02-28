@@ -112,7 +112,7 @@ function AddService() {
         >
           <h3>Merci !</h3>
           <p>Service Ajouté avec succès </p>
-          <NavLink to="/services" className="d-flex justify-content-center">
+          <NavLink aria-label="services" to="/services" className="d-flex justify-content-center">
             <button className="btn mt-15"> Retour au service</button>
           </NavLink>
         </div>
