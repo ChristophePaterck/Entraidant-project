@@ -1,34 +1,35 @@
-import styles from "./SignUp.module.scss";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
-import { createUser } from "../../apis/users.jsx";
+import styles from "./SignUp.module.scss"; // Importation des styles spécifiques pour la page d'inscription
+import { useForm } from "react-hook-form"; // Importation de la fonction useForm pour gérer les formulaires dans React
+import * as yup from "yup"; // Importation de yup pour la validation du formulaire
+import { yupResolver } from "@hookform/resolvers/yup"; // Importation de yupResolver pour intégrer yup avec react-hook-form
+import { useNavigate } from "react-router-dom"; // Importation de useNavigate pour la navigation programmée dans React
+import { createUser } from "../../apis/users.jsx"; // Importation de la fonction createUser depuis le fichier d'API users.jsx
 
 function SignUp() {
-  const navigate = useNavigate();
-  // utilisation de la vérification des données avec yup
+  const navigate = useNavigate(); // Utilisation de useNavigate pour la navigation entre les pages
+
+  // Schéma de validation du formulaire avec yup
   const validationSchema = yup.object({
     username: yup
       .string()
-      .required("Il faut préciser votre nom utilisateur")
-      .min(2, "Un vrai nom"),
+      .required("Le nom d'utilisateur est requis")
+      .min(2, "Le nom d'utilisateur doit contenir au moins 2 caractères"),
     firstname: yup
       .string()
-      .required("Il faut préciser votre prénom")
-      .min(2, "Un vrai prénom"),
+      .required("Le prénom est requis")
+      .min(2, "Le prénom doit contenir au moins 2 caractères"),
     lastname: yup
       .string()
-      .required("Il faut préciser votre nom")
-      .min(2, "Un vrai nom"),
+      .required("Le nom est requis")
+      .min(2, "Le nom doit contenir au moins 2 caractères"),
     email: yup
       .string()
-      .required("Il faut votre email")
-      .email("l'email n'est pas valide"),
+      .required("L'email est requis")
+      .email("L'email doit être valide"),
     password: yup
       .string()
-      .required("Il faut préciser votre mot de passe")
-      .min(6, "Mot de passe trop court"),
+      .required("Le mot de passe est requis")
+      .min(6, "Le mot de passe doit contenir au moins 6 caractères"),
     confirmPassword: yup
       .string()
       .required("Vous devez confirmer votre mot de passe")
@@ -38,36 +39,41 @@ function SignUp() {
       ),
   });
 
-  // initialisation des valeurs par défault
+  // Initialisation des valeurs par défaut du formulaire
   const initialValues = {
     username: "",
     firstname: "",
     lastname: "",
     email: "",
     password: "",
+    confirmPassword: "",
   };
 
-  // deconstruction de l'objet useform fourni par react-hook-form pour utiliser les fonctions utiles au projet
+  // Utilisation de useForm avec le schéma de validation
   const {
-    handleSubmit,
-    register,
-    formState: { errors, isSubmitting },
-    setError,
-    clearErrors,
+    handleSubmit, // Fonction pour gérer la soumission du formulaire
+    register, // Fonction pour enregistrer les champs du formulaire
+    formState: { errors, isSubmitting }, // État du formulaire contenant les erreurs et l'état de soumission
+    setError, // Fonction pour définir les erreurs de formulaire
+    clearErrors, // Fonction pour effacer les erreurs de formulaire
   } = useForm({
-    initialValues,
-    resolver: yupResolver(validationSchema),
+    initialValues, // Valeurs initiales du formulaire
+    resolver: yupResolver(validationSchema), // Utilisation de yupResolver pour intégrer yup avec react-hook-form
   });
 
+  // Fonction de soumission du formulaire
   const submit = handleSubmit(async (user) => {
     console.log(user);
+    // Affichage des données de l'utilisateur dans la console
     try {
-      clearErrors();
-      // const user =
-      await createUser(user);
-      navigate("/signin");
-    } catch (message) {
-      setError("generic", { type: "generic", message });
+      clearErrors(); // Efface les erreurs précédentes
+      await createUser(user); // Appel de la fonction de création d'utilisateur avec les informations du formulaire
+      navigate("/signin"); // Redirection vers la page de connexion après l'inscription réussie
+    } catch (error) {
+      setError("generic", {
+        type: "generic",
+        message: error.message,
+      }); // Affichage des erreurs génériques en cas de problème lors de l'inscription
     }
   });
   return (
@@ -168,10 +174,12 @@ function SignUp() {
           )}
         </div>
         {errors.generic && (
-          <p className="form-error"> {errors.generic.message}</p>
+          <div className="mb-10">
+            <p className="form-error">{errors.generic.message}</p>
+          </div>
         )}
         <div>
-          <button disabled={isSubmitting} className="btn btn-primary">
+          <button disabled={isSubmitting} className="btn btn-reverse-primary mt-30">
             Inscription
           </button>
         </div>

@@ -1,0 +1,24 @@
+@use "../../../assets/styles/mixins" as mixin;
+
+.confirmAddform {
+  max-width: 20rem;
+  flex: 1 1 auto;
+  padding: 2rem;
+  border: 1px var(--gray-2) solid;
+  box-shadow: var(--box-shadow) ;
+  border-radius: 5px;
+  h3 , p {
+    text-align: center;
+  }
+}
+
+.form {
+  max-width: 30rem;
+  flex: 1 1 auto;
+  border: 1px var(--gray-2) solid;
+  box-shadow: var(--box-shadow) ;
+  border-radius: 5px;
+  @include mixin.xs {
+    max-width: 20rem;
+  }
+}

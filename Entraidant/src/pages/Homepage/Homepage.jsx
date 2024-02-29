@@ -1,62 +1,80 @@
-import styles from "./Homepage.module.scss";
-import accueil from "../../../public/img/accueil.png";
-import { NavLink } from "react-router-dom";
+import styles from "./Homepage.module.scss"; // Importation des styles spécifiques pour la page d'accueil
+import { NavLink } from "react-router-dom"; // Importation de NavLink pour gérer les liens de navigation
 
 function Homepage() {
   return (
-    <div
-      className={` ${styles.mainContainerXs} d-flex flex-column p-20 justify-content-center`}
-    >
-      <div
-        className={` ${styles.containerCardXs} d-flex justify-content-center space-between mb-20`}
-      >
-        <NavLink to="/demarches"
-          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex flex-column align-items-center justify-content-center`}
+    <>
+      <nav className={`mt-30 ${styles.nav}`}>
+        <div
+          className={`${styles.containerCardXs} d-flex justify-content-center space-between mb-20`}
         >
-          <h4>Démarches</h4>
-        </NavLink>
-        <NavLink to="/specialistes"
-          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
-        >
-          <h4>Spécialistes</h4>
-        </NavLink>
-        <NavLink to="/services"
-          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
-        >
-          <h4>Services</h4>
-        </NavLink>
-        <NavLink to="/messagerie"
-          className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex align-items-center justify-content-center`}
-        >
-          <h4>Messagerie</h4>
-        </NavLink>
-      </div>
-      <div className="d-flex">
-        <img
-          className={`${styles.homepageImg} ${styles.homepageImgXs}`}
-          src={accueil}
-          alt="image représentant deux mains jointes"
-        />
-        <div className={`align-items-center ${styles.homepageText}`}>
-          Bienvenue sur Entraidant, un havre virtuel dédié à tisser des liens
-          solides et à fournir une assistance inestimable à ceux qui traversent
-          des défis physiques, moteurs ou mentaux.
-          <p>
-            Notre plateforme offre un espace bienveillant où la communauté se
-            rassemble pour partager son soutien, son expérience et ses
-            ressources.
-          </p>{" "}
-          <p>
-            Que vous soyez en quête de conseils pratiques, d'encouragements
-            chaleureux ou simplement d'une oreille attentive, Entraidant est là
-            pour vous accompagner à chaque étape de votre parcours. Ensemble,
-            nous pouvons surmonter les obstacles et construire un avenir plus
-            inclusif et solidaire.
-          </p>
-          Rejoignez-nous dès aujourd'hui et découvrez la force de l'entraide !
+          {/* Liens vers différentes sections */}
+          <NavLink aria-label='demarches'
+            to="/demarches"
+            className={`${styles.homepageLink}  mt-30 d-flex justify-content-center align-items-center`}
+          >
+            <h4 className="ml-15">Démarches</h4>
+            <p>Trouvez les démarches et aides qui correpondent à votre situation.</p>
+          </NavLink>
+          <NavLink aria-label='specialistes'
+            to="/specialistes"
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
+          >
+            <h4 className="ml-15">Spécialistes</h4>
+            <p >Trouvez un spécialiste prêt de chez vous.</p>
+          </NavLink>
+          <NavLink aria-label='services'
+            to="/services"
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
+          >
+            <h4 className="ml-15"> Services</h4>
+            <p>Proposez ou recevez de l'aide gratuitement.</p>
+          </NavLink>
+          <NavLink aria-label='messagerie'
+            to="/messagerie"
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
+          >
+            <h4 className="ml-15">Messagerie</h4>
+            <p>On parle de tout et ça fait du bien.</p>
+          </NavLink>
+          <NavLink aria-label='quisommesnous'
+            to="/quisommesnous"
+            className={`${styles.homepageLink} ${styles.cardXs} mt-30 d-flex justify-content-center align-items-center`}
+          >
+            <h4 className="ml-15">Qui sommes Nous</h4>
+            <p>Pour en savoir plus sur cette plateforme.</p>
+          </NavLink>
+        </div>
+      </nav>
+      {/* Conteneur principal */}
+      <div className={`${styles.mainContainerXs} ${styles.mainContainer}  `}>
+        {/* Contenu principal */}
+        <div className="d-flex">
+          {/* Texte d'accueil */}
+          <div className={`align-items-center ${styles.homepageText}`}>
+            <div>
+              <h1>Entraidant</h1>
+            </div>
+            Bienvenue sur Entraidant, un havre virtuel dédié à tisser des liens
+            solides et à fournir une assistance inestimable à ceux qui
+            traversent des défis physiques, moteurs ou mentaux.
+            <p>
+              Notre plateforme offre un espace bienveillant où la communauté se
+              rassemble pour partager son soutien, son expérience et ses
+              ressources.
+            </p>{" "}
+            <p>
+              Que vous soyez en quête de conseils pratiques, d'encouragements
+              chaleureux ou simplement d'une oreille attentive, Entraidant est
+              là pour vous accompagner à chaque étape de votre parcours.
+              Ensemble, nous pouvons surmonter les obstacles et construire un
+              avenir plus inclusif et solidaire.
+            </p>
+            Rejoignez-nous dès aujourd'hui et découvrez la force de l'entraide !
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

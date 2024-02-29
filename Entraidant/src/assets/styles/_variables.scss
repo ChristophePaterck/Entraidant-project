@@ -1,9 +1,10 @@
 :root {
-  --primary:rgba(41, 128, 185,1.0) ;
+  --primary:RGBA(47, 37, 106, 1.0) ;
   --gray-1:RGB(32, 35, 42) ;
   --gray-2: #efefef;
-  --font-family: "Monserrat", sans-serif ;
-  --box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
-  --box-shadow-nav: rgb(0 0 0 / 22%) 0px 2px 18px 0px;
+  --orange:RGBA(215, 89, 75, 1.0);
+  --font-family: "Helvetica", "sans serif" ;
+  --box-shadow: 0 6px 5px 0 rgb(0 0 0 / 10%);
+  --box-shadow-nav: rgb(0 0 0 / 10%) 0px 2px 5px 0px;
   --text-color: #444;
 }

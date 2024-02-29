@@ -1,40 +1,113 @@
-@media (max-width: 768px) {
-  .mapContainer {
-    height: 200px; 
-  }
-}
-
-body {
-  padding: 0;
-  margin: 0;
-}
-
-html, body, #map {
-  height: 100%;
-  width: 100vw;
-}
-
 .container {
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
+  background-color: #f7f7f7;
   padding: 20px;
-}
+ }
 
 .mapContainer {
-  width: 40%;
+  width: 100%;
   height: 300px;
-  margin: 80px auto;
-  border: 1px solid #ccc;
-  float: right;
-  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .searchBarContainer {
-  position: absolute;
-  top: 10;
-  left: 1px;
-  width: 80%;
-  padding: 2px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
+.searchTerm {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.searchButton {
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  width: 5rem;
+}
+
+.searchTerm:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.buttonContainer button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonContainer button:hover {
+  background-color: #0056b3;
+}
+
+.buttonContainerListe {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonContainerListes {
+  padding: 10px 20px;
+  margin-bottom: 3rem;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttonContainerListes:hover {
+  background-color: #218838;
+}
+
+.searchResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; // ou une autre méthode pour aligner les cartes
+
+  .searchResultCard {
+    width: 30%; // Ajustez la largeur selon vos besoins
+    margin-bottom: 20px; // Espace entre les cartes
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Ajoutez une ombre si vous le souhaitez
+
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.specialistesContainer {
+  display: flex;
+  flex-direction: column; // Pour afficher les cartes en colonne
+}

@@ -1,16 +1,24 @@
+@use "../../assets/styles/mixins" as mixin;
+
 .ultimateContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  height: 84vh;
+  @include mixin.xs {
+    height: 91vh;
+  }
 }
-
-
 
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+  @include mixin.xs {
+    max-width: 20rem;
+    margin-top: 5rem;
+  }
 }

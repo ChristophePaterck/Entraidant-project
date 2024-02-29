@@ -1,38 +1,56 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./Header.module.scss";
-// import HeaderMenu from "./components/HeaderMenu/HeaderMenu.jsx";
+import HeaderMenu from "./components/HeaderMenu/HeaderMenu.jsx";
 import logo from "../../../public/img/logoEntraidant.png";
-// import HeaderForm from "./components/HeaderForm/HeaderForm.jsx";
-import { NavLink } from "react-router-dom";
 
-// import logo from "../../../public/img/logo.png";
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
+  const { user, signout } = useContext(AuthContext);
   return (
     <header
       className={`${styles.header} ${styles.headerXs} d-flex flex-row align-items-center space-between`}
     >
-      <NavLink to="/">
-        <img src={logo} alt="Entraidant logo" />
+      <NavLink aria-label="Retour a la page d'acceuil" to="/">
+        <i
+          className="fa-solid fa-house fa-xl"
+          style={{ color: "var(--primary)" }}
+        ></i>
       </NavLink>
 
-      <div className=" ">
-        <h1>Entraidant</h1>
-      </div>
+      <img src={logo} alt="Entraidant logo" />
 
-      <div>
-        <NavLink to="/signin" className={styles.headerListXs}>
-          <button className="btn btn-primary mr-15">
-            <span>Connexion</span>
+      {user ? (
+        <div>
+          <NavLink aria-label="se rendre sur profil" to="/profil" className={styles.headerListXs}>
+            <button className="btn btn-reverse-primary mr-15">
+              <span>Profile</span>
+            </button>
+          </NavLink>
+
+          <button
+            className={`${styles.headerListXs} btn btn-primary mr-15`}
+            onClick={() => signout()}
+          >
+            <span>Déconnexion</span>
           </button>
-        </NavLink>
-        <NavLink to="/signup" className={styles.headerListXs}>
-          <button className="btn btn-primary mr-15">
-            <span>Inscription</span>
-          </button>
-        </NavLink>
-      </div>
+        </div>
+      ) : (
+        <div>
+          <NavLink aria-label='connection' to="/signin" className={styles.headerListXs}>
+            <button className="btn btn-primary mr-15">
+              <span>Connexion</span>
+            </button>
+          </NavLink>
+          <NavLink aria-label='inscription' to="/signup" className={styles.headerListXs}>
+            <button className="btn btn-reverse-primary mr-15">
+              <span>Inscription</span>
+            </button>
+          </NavLink>
+        </div>
+      )}
 
       <i
         onClick={() => setShowMenu(true)}
@@ -40,7 +58,9 @@ function Header() {
       ></i>
       {showMenu && (
         <>
-          <div onClick={() => setShowMenu(false)} className="calc"></div>
+          <div onClick={() => setShowMenu(false)} className="calc">
+            <HeaderMenu />
+          </div>
         </>
       )}
     </header>
